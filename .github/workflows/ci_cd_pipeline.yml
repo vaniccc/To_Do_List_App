@@ -31,8 +31,8 @@ jobs:
 
     - name: Deploy to target directory
       run: |
-          mkdir -p /home/azubi/todo-app/
-          cp -r * /home/azubi/todo-app/
-          cd /home/azubi/todo-app/
+          mkdir -p /home/azubi/deploy/todo-app/
+          cp -r * /home/azubi/deploy/todo-app/
+          cd /home/azubi/deploy/todo-app/
           npm install --production
           pm2 restart todo-app || pm2 start index.js --name todo-app
