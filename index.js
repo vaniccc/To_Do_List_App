@@ -3,7 +3,7 @@ const app = express();
 const PORT = process.env.PORT || 3000;
 
 app.get('/', (req, res) => {
-  res.send('To-Do-List App läuft!');
+  res.send('To-Do-List App läuft! Test 1 erfolgreich abgeschlossen');
 });
 
 app.listen(PORT, () => {
