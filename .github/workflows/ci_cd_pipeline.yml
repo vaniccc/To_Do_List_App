@@ -1,0 +1,38 @@
+name: CI/CD Pipeline
+
+on:  
+  push:
+    branches: [main]
+
+jobs: 
+  build:
+    runs-on: self-hosted
+
+    steps:
+      - name: Project Checkout
+        uses: actions/checkout@v4
+
+      - name: Node.js Setup
+        uses: actions/setup-node@v4
+        with:
+          node-version: '18'
+
+      - name: Install Dependencies
+        run: npm install
+
+  deploy:
+    needs: build
+    runs-on: self-hosted
+
+
+    steps:
+    - name: Project Checkout
+      uses: actions/checkout@v4
+
+    - name: Deploy to target directory
+      run: |
+          mkdir -p /home/azubi/todo-app/
+          cp -r * /home/azubi/todo-app/
+          cd /home/azubi/todo-app/
+          npm install --production
+          pm2 restart todo-app || pm2 start index.js --name todo-app
