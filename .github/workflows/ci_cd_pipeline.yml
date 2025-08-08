@@ -20,10 +20,10 @@ jobs:
       - name: Install Dependencies
         run: npm install
 
+
   deploy:
     needs: build
     runs-on: self-hosted
-
 
     steps:
     - name: Project Checkout
