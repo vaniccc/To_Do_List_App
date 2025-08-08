@@ -35,4 +35,4 @@ jobs:
           cp -r * /home/azubi/deploy/todo-app/
           cd /home/azubi/deploy/todo-app/
           npm install --production
-          pm2 restart todo-app || pm2 start index.js --name todo-app
+          pm2 restart todo-app || /usr/local/bin/pm2 start index.js --name todo-app
