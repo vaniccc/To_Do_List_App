@@ -12,7 +12,7 @@
     <div id="main_div">
         <h2>To-Do-List Signup</h2>
 
-        <form  method="post" id="signupForm">
+        <form method="post" id="signupForm" onsubmit="return check(form)">
             <div class="form_Box">
                 <label for="username">Benutzername</label>
                 <input type="text" id="username" name="username" required minlength="4"/>
@@ -26,7 +26,7 @@
                 <input type="password" id="confirmPassword" name="confirmPassword" required/>
             </div>
             <a href="../index.html">Anmelden</a>
-            <input class="form_buttons" type="submit" onclick="return check(form)" value="Registrieren">
+            <input class="form_buttons" type="submit" value="Registrieren">
             <input class="form_buttons" type="reset" value="Zurücksetzen">
         </form>
     </div>
