@@ -1,11 +1,29 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="de">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Test Website</title>
+    <link rel="stylesheet" href="styles/resetStyle.css"/>
+    <link rel="stylesheet" href="styles/loginStyle.css"/>
+    <title>To-Do-List Login</title>
 </head>
 <body>
-    <h1>Test</h1>
+    <div id="main_div">
+        <h2>To-Do-List Login</h2>
+
+        <form method="post">
+            <div class="form_Box">
+                <label for="username">Benutzername</label>
+                <input type="text" id="username" name="username" required />
+            </div>
+            <div class="form_Box">
+                <label for="password">Passwort</label>
+                <input type="password" id="password" name="password" required />
+            </div>
+            <a href="pages/signup.html">Registrieren</a>
+            <input class="form_buttons" type="submit" value="Anmelden">
+            <input class="form_buttons" type="reset" value="Zurücksetzen">
+        </form>
+    </div>
 </body>
 </html>

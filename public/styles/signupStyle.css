@@ -1,0 +1,89 @@
+html{
+    height: 100%;
+}
+
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+}
+
+#main_div{
+    background-color: #ffffff;
+    padding: 1.5%;
+    border-radius: 14px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+    width: 100%;
+    max-width: 400px;
+}
+
+h2{
+    text-align: center;
+    color: #1e90af;
+    margin-bottom: 3%;
+}
+
+.form_Box {
+    margin-bottom: 2%;
+}
+
+label {
+    display: block;
+    margin-bottom: 1%;
+    font-size: 17px;
+}
+
+input[type=text], input[type=password] {
+    width: 100%;
+    height: 30px;
+    border-radius: 8px;
+    border-width: 1px;
+    padding: 1%;
+    font-size: 14px;
+}
+
+a {
+    display: block;
+    text-decoration: none;
+    font-size: 17px;
+    color: #1e90af;
+    margin-bottom: 4%;
+    width: 27%;
+    transition: all 0.5s;
+}
+
+a:hover {
+    color: blue;
+    transition: all 0.5s;
+}
+
+.form_buttons {
+    margin-left: 1%;
+    width: 30%;
+    height: 30px;
+    border: 2px 2px 2px 2px;
+    border-radius: 8px;
+}
+
+input[type=submit] {
+    background-color: #1e90af;
+    margin-left: 35%;
+    transition: all 0.5s;
+}
+
+input[type=submit]:hover {
+    color: white;
+    font-weight: bold;
+    transition: all 0.5s;
+}
+
+input[type=reset] {
+    transition: all 0.5s;
+}
+
+input[type=reset]:hover {
+    color: black;
+    font-weight: bold;
+    transition: all 0.5s;
+}

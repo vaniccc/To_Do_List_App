@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../styles/resetStyle.css"/>
+    <link rel="stylesheet" href="../styles/signupStyle.css"/>
+    <script type="text/javascript" src="../javascript/signup.js" defer></script>
+    <title>To-Do-List Signup</title>
+</head>
+<body>
+    <div id="main_div">
+        <h2>To-Do-List Signup</h2>
+
+        <form  method="post" id="signupForm">
+            <div class="form_Box">
+                <label for="username">Benutzername</label>
+                <input type="text" id="username" name="username" required minlength="4"/>
+            </div>
+            <div class="form_Box">
+                <label for="password">Passwort</label>
+                <input type="password" id="password" name="password" required minlength="8"/>
+            </div>
+            <div class="form_Box">
+                <label for="confirmPassword">Passwort bestätigen</label>
+                <input type="password" id="confirmPassword" name="confirmPassword" required/>
+            </div>
+            <a href="../index.html">Anmelden</a>
+            <input class="form_buttons" type="submit" value="Registrieren">
+            <input class="form_buttons" type="reset" value="Zurücksetzen">
+        </form>
+    </div>
+</body>
+</html>
