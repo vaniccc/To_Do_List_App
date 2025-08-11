@@ -14,6 +14,7 @@ function check() {
     //     alert("Password muss mindestens 8 Zeichen enthalten.");
     //     return;
     // }
+    alert(username + ", " + password);
 
     if(password != confirmPassword) {
         alert("Passwörter stimmen nicht überein.");
