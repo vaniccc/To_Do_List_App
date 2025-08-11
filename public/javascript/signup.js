@@ -1,7 +1,7 @@
 const form = document.getElementById('form');
-const username = document.getElementById('username').value;
-const password = document.getElementById('password').value;
-const confirmPassword = document.getElementById('confirmPassword').value;
+const username = document.getElementById('username');
+const password = document.getElementById('password');
+const confirmPassword = document.getElementById('confirmPassword');
 
 function check() {
 
@@ -14,9 +14,9 @@ function check() {
     //     alert("Password muss mindestens 8 Zeichen enthalten.");
     //     return;
     // }
-    alert(username + ", " + password);
+    alert(username.value + ", " + password.value);
 
-    if(password != confirmPassword) {
+    if(password.value != confirmPassword.value) {
         alert("Passwörter stimmen nicht überein.");
         return;
     }
