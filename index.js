@@ -4,9 +4,10 @@ const PORT = process.env.PORT || 3000;
 
 app.use(express.static('public'))
 
-// app.get('/', (req, res) => {
-//   res.send('To-Do-List App läuft! Test 1 erfolgreich abgeschlossen');
-// });
+app.use((req, res) => {
+  res.status(404);
+  res.send(`<h1>Error 404: Resource not found!</h1>`);
+})
 
 app.listen(PORT, () => {
   console.log(`Server läuft auf Port ${PORT}`);
