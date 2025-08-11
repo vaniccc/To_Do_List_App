@@ -15,7 +15,7 @@ function check() {
     //     return;
     // }
 
-    if(password !== confirmPassword) {
+    if(password != confirmPassword) {
         alert("Passwörter stimmen nicht überein.");
         return;
     }
