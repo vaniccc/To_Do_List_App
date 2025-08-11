@@ -1,0 +1,49 @@
+html, body {
+    width: 100%;
+    height: 100%;
+}
+
+header {
+    position: absolute;
+    right: 0px;
+    width: 100%;
+    height: 7%;
+    border-bottom: 2px solid black;
+    background-color: #1e90af;
+}
+
+header h2 {
+    color: white;
+    text-align: center;
+    margin-top: 10px;
+}
+
+#menu-div {
+    position: relative;
+    top: 7%;
+    height: 100%;
+    width: 15%;
+    background-color: #1e90af;
+    border-right: 2px solid black;
+    padding-top: 1%;
+}
+
+.menu {
+    width: 85%;
+    height: 5%;
+    border: 2px solid black;
+    margin: 0 0 10% 5%;
+    text-align: center;
+    padding-top: 6px;
+}
+
+.menu a{
+    text-decoration: none;
+    color: white;
+}
+
+#logout-menu {
+    position: absolute;
+    bottom: 10%;
+    right: 7.5%;
+}
