@@ -20,7 +20,7 @@ const form = document.getElementById('signupForm').addEventListener("submit", as
 
     try{
 
-        const response = await fetch('users/register', {
+        const response = await fetch('users/signup', {
             method: 'POST',
             headers: { 'Content-Type': 'application/json'},
             body: JSON.stringify({ username, password, confirmPassword })
