@@ -35,15 +35,19 @@ header h2 {
     margin: 0 0 10% 5%;
 }
 
-.menu a{
+.menu a {
     text-decoration: none;
-    color: white;
 }
 
-.menu a p{
+.menu p {
     display: flex;
     justify-content: center;
     align-items: center;
+    color: white;
+    
+}
+
+.menu a p {
     height: 100%;
     transition: all 0.3s;
 }
