@@ -28,10 +28,8 @@ const form = document.getElementById('signupForm').addEventListener('submit', as
             body: JSON.stringify({ username, password, confirmPassword })
         });
 
-        const data = await response.json();
-
        if (!res.ok) {
-            alert('Fehler bei der Registrierung: ' + (data.message || data.error));
+            alert('Fehler bei der Registrierung: ');
         } else {
             alert('Registrierung erfolgreich.');
             document.getElementById('signupForm').reset();
