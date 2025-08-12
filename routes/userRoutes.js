@@ -3,8 +3,6 @@ const router = express.Router();
 const pool = require('../config/db');
 const bcrypt = require('bcrypt');
 
-console.log(pool);
-
 router.post('/register', async (req, res) => {
     
         const { username, password, confirmPassword } = req.body;
@@ -22,26 +20,25 @@ router.post('/register', async (req, res) => {
         }
 
     try {
-        try{
-        const userCheck = await pool.query(`SELECT * FROM users WHERE username = '${username}'`);        
+       const userCheck = await pool.query('SELECT * FROM users WHERE username = $1', [username]);
+        // const userCheck = await pool.query(`SELECT * FROM users WHERE username = '${username}'`);        
         console.log(userCheck.rows);
-        }catch (err) {
-            console.error(err);
-        }
 
         if(userCheck.rows.length > 0) {
             return res.status(400).json({ message: 'Benutzername ist bereits vergeben.'});
         }
 
+        
         const hashedPassword = await bcrypt.hash(password, 10); 
 
-        try {
-        const result = await pool.query(
-            `INSERT INTO users (username, password_hash) VALUES ('${username}', '${hashedPassword}');`);
-            console.log(result.rows);
-        } catch (erro) {
-            console.error(erro);
-        }
+        // await pool.query(
+        //     `INSERT INTO users (username, password_hash) VALUES ('${username}', '${hashedPassword}');`);
+
+         await pool.query(
+            'INSERT INTO users (username, password_hash) VALUES ($1, $2)',
+            [username, hashedPassword]
+        );
+            
         res.status(201).json({ message: "Benutzer erfolgreich registiert"});
     }
     catch (err) {
