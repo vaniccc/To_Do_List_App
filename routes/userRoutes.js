@@ -50,14 +50,6 @@ router.post('/register', async (req, res) => {
             console.error(erro);
         }
 
-          
-
-        const userCheck2 = await pool.query('SELECT * FROM users WHERE username = $1', [username]);
-        // const userCheck = await pool.query(`SELECT * FROM users WHERE username = '${username}'`);        
-        console.log("UserCheck 2: ");
-        console.log(userCheck2.rows);
-
-
         res.status(201).json({ message: "Benutzer erfolgreich registiert"});
     }
     catch (err) {
