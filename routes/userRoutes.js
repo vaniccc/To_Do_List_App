@@ -20,7 +20,7 @@ router.post('/register', async (req, res) => {
         }
 
     try {
-        const userCheck = await pool.query(`SELECT * FROM users WHERE username = '${username}'`)        
+        const userCheck = await pool.query(`SELECT * FROM users WHERE username = '${username}'`);        
         
         if(userCheck.rows.length > 0) {
             return res.status(400).json({ message: 'Benutzername ist bereits vergeben.'});
@@ -28,7 +28,7 @@ router.post('/register', async (req, res) => {
 
         const hashedPassword = await bcrypt.hash(password, 10); 
 
-        const result = await pool.query(
+        pool.query(
             `INSERT INTO users (username, password_hash) VALUES ('${username}', '${hashedPassword}');`);
 
         res.status(201).json({ message: "Benutzer erfolgreich registiert"});
@@ -36,8 +36,7 @@ router.post('/register', async (req, res) => {
     catch (err) {
         console.error(err);
         res.status(500).json({ error: "Serverfehler"});
-    }
-    
+    }    
 });
 
 module.exports = router;
