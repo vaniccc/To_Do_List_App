@@ -19,7 +19,7 @@ const form = document.getElementById('loginForm').addEventListener('submit', asy
             return;
         }
     
-        alert(data.message);
+        // alert(data.message);
         window.location.href = '../pages/to_do_lists.html';
 
     } catch (err) {

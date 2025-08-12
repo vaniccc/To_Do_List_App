@@ -31,7 +31,7 @@ const form = document.getElementById('signupForm').addEventListener('submit', as
         const data = await res.json();
 
        if (!res.ok) {
-            alert('Fehler bei der Registrierung.');
+            alert('Fehler bei der Registrierung: ' + data.error);
         } else {
             alert('Registrierung erfolgreich.');
             document.getElementById('signupForm').reset();
@@ -40,7 +40,6 @@ const form = document.getElementById('signupForm').addEventListener('submit', as
     catch (err) {
         console.error(err);
         alert('Serverfehler:');
-        
     }
 });
 

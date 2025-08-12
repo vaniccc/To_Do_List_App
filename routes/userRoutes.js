@@ -30,6 +30,7 @@ router.post('/register', async (req, res) => {
         try{
         // const userCheck = await pool.query(`SELECT * FROM users WHERE username = '${username}'`);        
         const userCheck = await pool.query('SELECT * FROM users WHERE username = $1', [username]);       
+        
         console.log("UserCheck 1: ");
         console.log(userCheck.rows);
 
@@ -61,9 +62,10 @@ router.post('/register', async (req, res) => {
         res.status(201).json({ message: "Benutzer erfolgreich registiert"});
 
 
-        const allUserCheck = await pool.query('SELECT * FROM users');       
-        console.log("allUserCheck 1: ");
-        console.log(allUserCheck.rows);
+        const allUserCheck = await pool.query('SELECT * FROM users');
+
+        // console.log("allUserCheck 1: ");
+        // console.log(allUserCheck.rows);
     }
     catch (err) {
         console.error(err);
@@ -88,6 +90,11 @@ router.post('/login', async (req, res) => {
             return res.status(400).json({ error: "Anmeldedaten falsch."});
         }
 
+        req.session.user = {
+            id: user.user_id,
+            username: user.username
+        };
+
         res.status(200).json({ message: "Login erfolgreich"});
     } catch(err) {
         console.error(err);
@@ -95,5 +102,25 @@ router.post('/login', async (req, res) => {
     }
     
 });
+
+router.get('/user', (req, res) => {
+    if(!req.session.user) {
+        return res.status(401).json({ error: 'Nicht eingeloggt'});
+    }
+    res.json({ user: req.session.user });
+});
+
+router.get('/logout', (req, res) => {
+    req.session.destroy((err) => {
+        if (err) {
+            console.error(err);
+            res.status(500).json({ error: 'Logout fehlgeschlagen'});
+        } else {
+            res.ClearCookie('conntect.sid');
+            res.json({ message: 'Logout erfolgreich.'});
+        }
+    });
+});
+
 
 module.exports = router;
