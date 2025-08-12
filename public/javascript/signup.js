@@ -1,23 +1,33 @@
-const form = document.getElementById('form');
-const username = document.getElementById('username');
-const password = document.getElementById('password');
-const confirmPassword = document.getElementById('confirmPassword');
+const form = document.getElementById('signupform').addEventListener("submit", async (e) => {
+    e.preventDefault();
 
-function check_errors() {
+    const username = document.getElementById('username');
+    const password = document.getElementById('password');
+    const confirmPassword = document.getElementById('confirmPassword');
 
     if(username.value.length < 4) {
-        alert("Benutzername muss mindestens 4 Zeichen enthalten.");
+        alert("FEHLER: Der Benutzername muss mindestens 4 Zeichen lang sein.");
         return;
     }
-    else if(password.value.length < 1) {
-        alert("Password muss mindestens 8 Zeichen enthalten.");
-        return;
+
+    if(password.value.length < 1) {
+        alert("FEHLER: Das Passwort muss mindestens 8 Zeichen betragen")
     }
-    else if(password.value != confirmPassword.value) {
-        alert("Passwörter stimmen nicht überein.");
-        return;
+
+    if(password != confirmPassword) {
+        alert("FEHLER: Passwörter stimmen nicht überein.")
     }
-    else {
-        window.location.href = "../pages/to_do_lists.html";
+
+    const response = await fetch("http://10.3.15.52:3000/users/signup", {
+        method: "POST",
+        headers: { "Content-Type": "application/json"},
+        body: JSON.stringify({ username, password, confirmPassword })
+    });
+
+    if(response.ok) {
+        alert('Registrierung erfolgreich.');
+    } else {
+        alert('Fehler bei der Registrierung.');
     }
-}
+});
+
