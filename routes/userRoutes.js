@@ -34,8 +34,7 @@ router.post('/register', async (req, res) => {
         console.log(userCheck.rows);
 
         if(userCheck.rows.length > 0) {
-            alert('Benutzername ist bereits vergeben.');
-            return;
+            return res.status(400).json({ message: "Benutzername ist bereichts vergeben."})
         }
 
         }catch (err2) {
