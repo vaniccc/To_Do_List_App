@@ -1,4 +1,4 @@
-const form = document.getElementById('signupForm').addEventListener("submit", async (e) => {
+const form = document.getElementById('signupForm').addEventListener('submit', async (e) => {
     e.preventDefault();
 
     const username = document.getElementById('username');
@@ -20,7 +20,7 @@ const form = document.getElementById('signupForm').addEventListener("submit", as
 
     try{
 
-        const response = await fetch('users/signup', {
+        const res = await fetch('/users/register', {
             method: 'POST',
             headers: { 'Content-Type': 'application/json'},
             body: JSON.stringify({ username, password, confirmPassword })
@@ -28,15 +28,17 @@ const form = document.getElementById('signupForm').addEventListener("submit", as
 
         const data = await response.json();
 
-        if(response.ok) {
-            alert('Registrierung erfolgreich.');
-            form.reset();
-        } else {
+        if(!res.ok) {
             alert('Fehler bei der Registrierung: ' + data.message);
+            
+        } else {
+            alert('Registrierung erfolgreich.');
+            document.getElementById('signupForm').reset();
         }
     }
-    catch (error) {
-        alert('Serverfehler: ' + error.message);
+    catch (err) {
+        alert('Serverfehler:');
+        console.error(err)
     }
 });
 
