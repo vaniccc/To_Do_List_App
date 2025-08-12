@@ -37,14 +37,11 @@ router.post('/register', async (req, res) => {
             return res.status(400).json({ message: "Benutzername ist bereichts vergeben."})
         }
 
-        }catch (err2) {
+        } catch (err2) {
             console.error(err2);
         }
         
         const hashedPassword = await bcrypt.hash(password, 10); 
-
-
-        
 
         // console.log(username);
         // console.log(hashedPassword);
@@ -72,6 +69,31 @@ router.post('/register', async (req, res) => {
         console.error(err);
         res.status(500).json({ error: "Serverfehler: " + err.message});
     }    
+});
+
+
+router.post('/login', async (req, res) => {
+
+    const {username, password} = req.body;
+
+    try{
+
+        const loginUserCheck = await pool.query('SELECT * FROM users WHERE username = $1', [username]);
+
+        const user = loginUserCheck.rows[0];
+
+        const checkPassword = await bcrypt.compare(password, user.password_hash);
+
+        if(loginUserCheck.rows.length === 0 && !checkPassword) {
+            return res.status(400).json({ error: "Anmeldedaten falsch."});
+        }
+
+        res.status(200).json({ message: "Login erfolgreich"});
+    } catch(err) {
+        console.error(err);
+        res.status(500).json({ error: "Serverfehler beim Login."});
+    }
+    
 });
 
 module.exports = router;
