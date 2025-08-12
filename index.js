@@ -7,7 +7,7 @@ app.use(express.static('public'))
 
 app.use(express.json());
 
-app.use('/users', usersRoute);
+app.use('/userRoutes', usersRoute);
 
 app.use((req, res) => {
   res.status(404);
@@ -17,5 +17,3 @@ app.use((req, res) => {
 app.listen(PORT, () => {
   console.log(`Server läuft auf Port ${PORT}`);
 }); 
-
-app.get()
