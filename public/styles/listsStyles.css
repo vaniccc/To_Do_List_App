@@ -58,7 +58,7 @@ header h2 {
     transition: all 0.3s;
 }
 
-#logout-Button {
+#logout-button {
     position: absolute;
     bottom: 10%;
     right: 7.5%;
@@ -71,7 +71,7 @@ header h2 {
     transition: all 0.3s;
 }
 
-#logout-Button:hover {
+#logout-button:hover {
     background-color: white;
     color: black;
     font-weight: bold;
