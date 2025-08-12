@@ -20,18 +20,19 @@ router.post('/register', async (req, res) => {
         }
 
     try {
+
         try{
             // const userCheck = await pool.query(`SELECT * FROM users WHERE username = '${username}'`);        
         const userCheck = await pool.query('SELECT * FROM users WHERE username = $1', [username]);       
-        console.log("UserCheck 1: ");
-        console.log(userCheck.rows);
+        // console.log("UserCheck 1: ");
+        // console.log(userCheck.rows);
 
         if(userCheck.rows.length > 0) {
             return res.status(400).json({ message: 'Benutzername ist bereits vergeben.'});
         }
 
-        }catch (err) {
-            console.error(err);
+        }catch (err2) {
+            console.error(err2);
         }
         
         const hashedPassword = await bcrypt.hash(password, 10); 
@@ -50,8 +51,6 @@ router.post('/register', async (req, res) => {
             'INSERT INTO users (username, password_hash) VALUES ($1, $2)',
             [username, hashedPassword]
         );
-        console.log("result: ");
-        console.log(result.rows); 
         } catch (erro) {
             console.error(erro);
         }
