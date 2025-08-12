@@ -36,8 +36,11 @@ router.post('/register', async (req, res) => {
         
         const hashedPassword = await bcrypt.hash(password, 10); 
 
-        console.log(username.value);
-        console.log(hashedPassword);
+
+        
+
+        // console.log(username);
+        // console.log(hashedPassword);
 
         // await pool.query(
         //     `INSERT INTO users (username, password_hash) VALUES ('${username}', '${hashedPassword}');`);
@@ -54,6 +57,11 @@ router.post('/register', async (req, res) => {
         }
 
         res.status(201).json({ message: "Benutzer erfolgreich registiert"});
+
+
+        const allUserCheck = await pool.query('SELECT * FROM users');       
+        console.log("allUserCheck 1: ");
+        console.log(allUserCheck.rows);
     }
     catch (err) {
         console.error(err);
