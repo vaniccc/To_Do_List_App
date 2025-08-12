@@ -5,5 +5,5 @@ const pool = new Pool({
     host: '10.3.15.52',
     database: 'todo_app_db',
     password: '123',
-    port: 3000
+    port: 5432,
 });
