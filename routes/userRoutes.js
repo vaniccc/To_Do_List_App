@@ -7,11 +7,11 @@ router.post('/register', async (req, res) => {
     
         const { username, password, confirmPassword } = req.body;
 
-        if(username.value.length < 4) {
+        if(username.length < 4) {
             return res.status(400).json({ error: "Der Benutername muss mindestens 4 Zeichen enthaltn."});
         }
         
-        if(password.value.length < 1) {
+        if(password.length < 1) {
             return res.status(400).json({ error: "Das Passwort muss mindestens 8 Zeichen enthalten"});
         }
 
