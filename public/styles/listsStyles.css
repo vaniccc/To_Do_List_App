@@ -47,7 +47,7 @@ header h2 {
     height: 100%;
 }
 
-.menu a p {    
+.menu a p {
     transition: all 0.3s;
 }
 
@@ -58,8 +58,22 @@ header h2 {
     transition: all 0.3s;
 }
 
-#logout-button {
+#logout-Button {
     position: absolute;
     bottom: 10%;
     right: 7.5%;
+    border: none;
+    color: white;
+    width: 85%;
+    height: 5%;
+    border: 2px solid black;
+    margin: 0 0 10% 5%;
+    transition: all 0.3s;
+}
+
+#logout-Button:hover {
+    background-color: white;
+    color: black;
+    font-weight: bold;
+    transition: all 0.3s;
 }
