@@ -3,6 +3,8 @@ const router = express.Router();
 const pool = require('../config/db');
 const bcrypt = require('bcrypt');
 
+console.log(pool);
+
 router.post('/register', async (req, res) => {
     
         const { username, password, confirmPassword } = req.body;
@@ -26,6 +28,7 @@ router.post('/register', async (req, res) => {
         }catch (err) {
             console.error(err);
         }
+
         if(userCheck.rows.length > 0) {
             return res.status(400).json({ message: 'Benutzername ist bereits vergeben.'});
         }
