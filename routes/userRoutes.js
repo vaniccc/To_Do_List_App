@@ -34,11 +34,11 @@ router.post('/register', async (req, res) => {
         // await pool.query(
         //     `INSERT INTO users (username, password_hash) VALUES ('${username}', '${hashedPassword}');`);
 
-         await pool.query(
+        const result = await pool.query(
             'INSERT INTO users (username, password_hash) VALUES ($1, $2)',
             [username, hashedPassword]
         );
-            
+        console.log(result.rows);    
         res.status(201).json({ message: "Benutzer erfolgreich registiert"});
     }
     catch (err) {
