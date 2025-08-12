@@ -20,8 +20,12 @@ router.post('/register', async (req, res) => {
         }
 
     try {
+        try{
         const userCheck = await pool.query(`SELECT * FROM users WHERE username = '${username}'`);        
-        
+        console.log(userCheck.rows);
+        }catch (err) {
+            console.error(err);
+        }
         if(userCheck.rows.length > 0) {
             return res.status(400).json({ message: 'Benutzername ist bereits vergeben.'});
         }
