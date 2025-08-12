@@ -39,6 +39,15 @@ router.post('/register', async (req, res) => {
             [username, hashedPassword]
         );
         console.log(result.rows);    
+
+        const userCheck2 = await pool.query('SELECT * FROM users WHERE username = $1', [username]);
+        // const userCheck = await pool.query(`SELECT * FROM users WHERE username = '${username}'`);        
+        console.log(userCheck2.rows);
+
+        if(userCheck2.rows.length > 0) {
+            return res.status(400).json({ message: 'Benutzername ist bereits vergeben.'});
+        }
+
         res.status(201).json({ message: "Benutzer erfolgreich registiert"});
     }
     catch (err) {
