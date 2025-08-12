@@ -18,7 +18,7 @@ const form = document.getElementById('signupForm').addEventListener("submit", as
         alert("FEHLER: Passwörter stimmen nicht überein.")
     }
 
-    const response = await fetch("http://10.3.15.52:3000/users/signup", {
+    const response = await fetch("http://10.3.15.52:3000/pages/signup", {
         method: "POST",
         headers: { "Content-Type": "application/json"},
         body: JSON.stringify({ username, password, confirmPassword })
