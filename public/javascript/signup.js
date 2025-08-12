@@ -34,12 +34,12 @@ const form = document.getElementById('signupForm').addEventListener('submit', as
             alert('Fehler bei der Registrierung: ' + data.error);
         } else {
             alert('Registrierung erfolgreich.');
-            document.getElementById('signupForm').reset();
+            window.location.href = '../index.html';
         }
     }
     catch (err) {
         console.error(err);
-        alert('Serverfehler:');
+        alert('Serverfehler');
     }
 });
 

@@ -8,21 +8,21 @@ router.post('/register', async (req, res) => {
         const { username, password, confirmPassword } = req.body;
 
         if(username.length < 4) {
-            //return res.status(400).json({ error: "Der Benutername muss mindestens 4 Zeichen enthaltn."});
-            alert('Der Benutername muss mindestens 4 Zeichen enthaltn.');
-            return;
+            return res.status(400).json({ error: "Der Benutername muss mindestens 4 Zeichen enthaltn."});
+            // alert('Der Benutername muss mindestens 4 Zeichen enthaltn.');
+            // return;
         }
         
         if(password.length < 1) {
-            //return res.status(400).json({ error: "Das Passwort muss mindestens 8 Zeichen enthalten"});
-            alert('Das Passwort muss mindestens 8 Zeichen enthalten.');
-            return;
+            return res.status(400).json({ error: "Das Passwort muss mindestens 8 Zeichen enthalten"});
+            // alert('Das Passwort muss mindestens 8 Zeichen enthalten.');
+            // return;
         }
 
         if(password.value != confirmPassword.value) {
-            // return res.status(400).json({ error: "Passwörter stimmen nicht überein."});
-            alert('Passwörter stimmen nicht überein.');
-            return;
+            return res.status(400).json({ error: "Passwörter stimmen nicht überein."});
+            //alert('Passwörter stimmen nicht überein.');
+            //return;
         }
 
     try {
@@ -86,7 +86,7 @@ router.post('/login', async (req, res) => {
 
         const checkPassword = await bcrypt.compare(password, user.password_hash);
 
-        if(loginUserCheck.rows.length === 0 && !checkPassword) {
+        if(loginUserCheck.rows.length === 0 || !checkPassword) {
             return res.status(400).json({ error: "Anmeldedaten falsch."});
         }
 
@@ -111,12 +111,13 @@ router.get('/user', (req, res) => {
 });
 
 router.get('/logout', (req, res) => {
+
     req.session.destroy((err) => {
         if (err) {
             console.error(err);
             res.status(500).json({ error: 'Logout fehlgeschlagen'});
         } else {
-            res.ClearCookie('conntect.sid');
+            res.clearCookie('connect.sid');
             res.json({ message: 'Logout erfolgreich.'});
         }
     });
