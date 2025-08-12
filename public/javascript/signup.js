@@ -1,4 +1,4 @@
-const form = document.getElementById('signupform').addEventListener("submit", async (e) => {
+const form = document.getElementById('signupForm').addEventListener("submit", async (e) => {
     e.preventDefault();
 
     const username = document.getElementById('username');
@@ -14,7 +14,7 @@ const form = document.getElementById('signupform').addEventListener("submit", as
         alert("FEHLER: Das Passwort muss mindestens 8 Zeichen betragen")
     }
 
-    if(password != confirmPassword) {
+    if(password.value != confirmPassword.value) {
         alert("FEHLER: Passwörter stimmen nicht überein.")
     }
 
