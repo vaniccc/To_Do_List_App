@@ -44,11 +44,10 @@ header h2 {
     justify-content: center;
     align-items: center;
     color: white;
-    
+    height: 100%;
 }
 
-.menu a p {
-    height: 100%;
+.menu a p {    
     transition: all 0.3s;
 }
 
@@ -59,7 +58,7 @@ header h2 {
     transition: all 0.3s;
 }
 
-#logout-menu {
+#logout-button {
     position: absolute;
     bottom: 10%;
     right: 7.5%;
