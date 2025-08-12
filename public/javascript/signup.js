@@ -18,16 +18,25 @@ const form = document.getElementById('signupForm').addEventListener("submit", as
         alert("FEHLER: Passwörter stimmen nicht überein.")
     }
 
-    const response = await fetch("http://10.3.15.52:3000/pages/signup", {
-        method: "POST",
-        headers: { "Content-Type": "application/json"},
-        body: JSON.stringify({ username, password, confirmPassword })
-    });
+    try{
 
-    if(response.ok) {
-        alert('Registrierung erfolgreich.');
-    } else {
-        alert('Fehler bei der Registrierung.');
+        const response = await fetch('users/register', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json'},
+            body: JSON.stringify({ username, password, confirmPassword })
+        });
+
+        const data = await response.json();
+
+        if(response.ok) {
+            alert('Registrierung erfolgreich.');
+            form.reset();
+        } else {
+            alert('Fehler bei der Registrierung: ' + data.message);
+        }
+    }
+    catch (error) {
+        alert('Serverfehler: ' + error.message);
     }
 });
 

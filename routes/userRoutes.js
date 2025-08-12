@@ -1,18 +1,10 @@
 const express = require('express');
 const router = express.Router();
-const { Pool } = require('pg');
+const pool = require('../config/db')
 const bcrypt = require('bcrypt');
 
-const pool = new Pool({
-    user: 'todo_user',
-    host: '10.3.15.52',
-    database: 'todo_app_db',
-    password: '123',
-    port: 5432
-});
-
 router.post('/signup', async (req, res) => {
-    try {
+    
         const { username, password, confirmPassword } = req.body;
 
         if(username.value.length < 4) {
@@ -27,11 +19,19 @@ router.post('/signup', async (req, res) => {
             return res.status(400).json({ error: "Passwörter stimmen nicht überein."});
         }
 
+    try {
+        const userCheck = await pool.query(`SELECT * FROM users WHERE username = '${username}'`)        
+        
+        if(userCheck.rows.length > 0) {
+            return res.status(400).json({ message: 'Benutzername ist bereits vergeben.'});
+        }
+
         const hashedPassword = await bcrypt.hash(password, 10); 
 
-        const result = await pool.query(`INSERT INTO users (username, password_hash) VALUES ('${username}', '${hashedPassword}');`);
+        const result = await pool.query(
+            `INSERT INTO users (username, password_hash) VALUES ('${username}', '${hashedPassword}');`);
 
-        res.status(201).json({ message: "Benutzer erstellt"});
+        res.status(201).json({ message: "Benutzer erfolgreich registiert"});
     }
     catch (err) {
         console.error(err);
