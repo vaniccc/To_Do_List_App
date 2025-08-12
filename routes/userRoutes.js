@@ -8,27 +8,34 @@ router.post('/register', async (req, res) => {
         const { username, password, confirmPassword } = req.body;
 
         if(username.length < 4) {
-            return res.status(400).json({ error: "Der Benutername muss mindestens 4 Zeichen enthaltn."});
+            //return res.status(400).json({ error: "Der Benutername muss mindestens 4 Zeichen enthaltn."});
+            alert('Der Benutername muss mindestens 4 Zeichen enthaltn.');
+            return;
         }
         
         if(password.length < 1) {
-            return res.status(400).json({ error: "Das Passwort muss mindestens 8 Zeichen enthalten"});
+            //return res.status(400).json({ error: "Das Passwort muss mindestens 8 Zeichen enthalten"});
+            alert('Das Passwort muss mindestens 8 Zeichen enthalten.');
+            return;
         }
 
         if(password.value != confirmPassword.value) {
-            return res.status(400).json({ error: "Passwörter stimmen nicht überein."});
+            // return res.status(400).json({ error: "Passwörter stimmen nicht überein."});
+            alert('Passwörter stimmen nicht überein.');
+            return;
         }
 
     try {
 
         try{
-            // const userCheck = await pool.query(`SELECT * FROM users WHERE username = '${username}'`);        
+        // const userCheck = await pool.query(`SELECT * FROM users WHERE username = '${username}'`);        
         const userCheck = await pool.query('SELECT * FROM users WHERE username = $1', [username]);       
-        // console.log("UserCheck 1: ");
-        // console.log(userCheck.rows);
+        console.log("UserCheck 1: ");
+        console.log(userCheck.rows);
 
         if(userCheck.rows.length > 0) {
-            return res.status(400).json({ message: 'Benutzername ist bereits vergeben.'});
+            alert('Benutzername ist bereits vergeben.');
+            return;
         }
 
         }catch (err2) {
@@ -64,7 +71,7 @@ router.post('/register', async (req, res) => {
     }
     catch (err) {
         console.error(err);
-        res.status(500).json({ error: "Serverfehler"});
+        res.status(500).json({ error: "Serverfehler: " + err.message});
     }    
 });
 
