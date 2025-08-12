@@ -38,8 +38,9 @@ const form = document.getElementById('signupForm').addEventListener('submit', as
         }
     }
     catch (err) {
+        console.error(err);
         alert('Serverfehler:');
-        console.error(err)
+        
     }
 });
 

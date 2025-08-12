@@ -25,7 +25,7 @@ router.post('/register', async (req, res) => {
             return;
         }
 
-    //try {
+    try {
 
         try{
         // const userCheck = await pool.query(`SELECT * FROM users WHERE username = '${username}'`);        
@@ -67,11 +67,11 @@ router.post('/register', async (req, res) => {
         const allUserCheck = await pool.query('SELECT * FROM users');       
         console.log("allUserCheck 1: ");
         console.log(allUserCheck.rows);
-    // }
-    // catch (err) {
-    //     console.error(err);
-    //     res.status(500).json({ error: "Serverfehler: " + err.message});
-    // }    
+    }
+    catch (err) {
+        console.error(err);
+        res.status(500).json({ error: "Serverfehler: " + err.message});
+    }    
 });
 
 module.exports = router;
