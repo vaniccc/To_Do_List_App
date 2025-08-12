@@ -22,7 +22,8 @@ router.post('/register', async (req, res) => {
     try {
        const userCheck = await pool.query('SELECT * FROM users WHERE username = $1', [username]);
         // const userCheck = await pool.query(`SELECT * FROM users WHERE username = '${username}'`);        
-        console.log("UserCheck 1: " + userCheck.rows);
+        console.log("UserCheck 1: ");
+        console.log(userCheck.rows);
 
         if(userCheck.rows.length > 0) {
             return res.status(400).json({ message: 'Benutzername ist bereits vergeben.'});
@@ -38,11 +39,13 @@ router.post('/register', async (req, res) => {
             'INSERT INTO users (username, password_hash) VALUES ($1, $2)',
             [username, hashedPassword]
         );
-        console.log("result 1: " + result.rows);    
+        console.log("result: ");
+        console.log(result.rows);   
 
         const userCheck2 = await pool.query('SELECT * FROM users WHERE username = $1', [username]);
         // const userCheck = await pool.query(`SELECT * FROM users WHERE username = '${username}'`);        
-        console.log("UserCheck 2: " + userCheck2.rows);
+        console.log("UserCheck 2: ");
+        console.log(userCheck2.rows);
 
         if(userCheck2.rows.length > 0) {
             return res.status(400).json({ message: 'Benutzername ist bereits vergeben.'});
