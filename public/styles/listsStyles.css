@@ -78,6 +78,14 @@ header h2 {
     margin: 0 0 0 5%;
 }
 
+#usernameDisplay {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    height: 100%;
+}
+
 #logout-button {
     position: absolute;
     bottom: 7.5%;
