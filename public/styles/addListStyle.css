@@ -7,7 +7,6 @@
     top: 7%;
     height: 93%;
     width: 85%;
-    background-color: #5387ca;
 }
 
 #form-div {
@@ -46,5 +45,9 @@ input[type=text] {
     height: 40px;
     border: 2px solid black;
     border-radius: 8px;
+}
+
+input[type=submit] {
+    color: #5387ca;
 }
 
