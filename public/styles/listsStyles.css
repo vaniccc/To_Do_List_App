@@ -33,6 +33,8 @@ header h2 {
     height: 5%;
     border: 2px solid black;
     margin: 0 0 10% 5%;
+    font-size: 15px;
+    transition: all 0.3s;
 }
 
 .menu a {
@@ -47,11 +49,8 @@ header h2 {
     height: 100%;
 }
 
-.menu a p {
-    transition: all 0.3s;
-}
 
-.menu a p:hover {
+.menu:hover {
     background-color: white;
     color: black;
     font-weight: bold;
@@ -61,12 +60,7 @@ header h2 {
 .menu-button {
     color: white;
     background-color: #1e90af;
-    width: 85%;
-    height: 5%;
-    border: 2px solid black;
-    margin: 0 0 10% 5%;
     transition: all 0.3s;
-    font-size: 15px;
 }
 
 #logout-button {
