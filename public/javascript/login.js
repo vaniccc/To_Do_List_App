@@ -4,7 +4,6 @@ const form = document.getElementById('loginForm').addEventListener('submit', asy
     const username = document.getElementById('username').value;
     const password = document.getElementById('password').value;
 
-    
 
     try {
         const res = await fetch('users/login', {
