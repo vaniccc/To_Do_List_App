@@ -4,17 +4,7 @@ const form = document.getElementById('loginForm').addEventListener('submit', asy
     const username = document.getElementById('username').value;
     const password = document.getElementById('password').value;
 
-    const res = await fetch('/users/user');
-
-        if(!res.ok) {
-            window.location.href = '../index.html';
-            return;
-        }
-
-        const data = await res.json();
-        if(data && data.user) {
-            usernameDisplay.textContent = "Hallo, " + data.user.username;
-        }
+    
 
     try {
         const res = await fetch('users/login', {
