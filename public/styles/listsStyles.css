@@ -70,7 +70,7 @@ header h2 {
 }
 
 #usernameDisplay-div{
-    position: relative;
+    position: absolute;
     bottom: 10%;
     border: none;
     margin: 0 0 0 5%;
