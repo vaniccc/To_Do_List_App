@@ -12,7 +12,7 @@ async function loadCurrentUser() {
 
         const data = await res.json();
         if(data && data.user) {
-            usernameDisplay.textContent = data.user.username;
+            usernameDisplay.textContent = "Hallo, " + data.user.username;
         }
     } catch (err) {
         console.error('Fehler beim Laden des Benutzers: ', err);
