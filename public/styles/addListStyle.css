@@ -7,13 +7,15 @@
     top: 7%;
     height: 93%;
     width: 85%;
+    background-color: #5369CA;
 }
 
 #form-div {
     background-color: #1e90af;
     padding: 3%;
     border-radius: 16px;
-    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.3);
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.4);
+    border: 2px solid black;
     width: 50%;
     height: 50%;
 }
@@ -26,22 +28,23 @@ label {
     display: block;
     margin-bottom: 0.5%;
     font-size: 17px;
+    color: white;
 }
 
 input[type=text] {
-    width: 80%;
+    width: 100%;
     height: 30px;
     border-radius: 8px;
-    border: 1px solid black;
+    border: 2px solid black;
     padding: 1%;
     font-size: 14px;
 }
 
 .form-buttons {
     margin-left: 0.5%;
-    width: 200px;
+    width: 150px;
     height: 40px;
-    border: 1px solid black;
+    border: 2px solid black;
     border-radius: 8px;
 }
 
