@@ -1,5 +1,5 @@
-#form-div {
-    position: relative;
+#body-div {
+    position: absolute;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -8,3 +8,40 @@
     height: 93%;
     width: 85%;
 }
+
+#form-div {
+    background-color: #1e90af;
+    padding: 3%;
+    border-radius: 16px;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.3);
+    width: 50%;
+    height: 50%;
+}
+
+.form-box {
+    margin-bottom: 2%;
+}
+
+label {
+    display: block;
+    margin-bottom: 0.5%;
+    font-size: 17px;
+}
+
+input[type=text] {
+    width: 80%;
+    height: 30px;
+    border-radius: 8px;
+    border: 1px solid black;
+    padding: 1%;
+    font-size: 14px;
+}
+
+.form-buttons {
+    margin-left: 0.5%;
+    width: 200px;
+    height: 40px;
+    border: 1px solid black;
+    border-radius: 8px;
+}
+
