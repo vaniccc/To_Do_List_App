@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../styles/resetStyle.css"/>
+    <link rel="stylesheet" href="../styles/headerStyle.css"/>
+    <link rel="stylesheet" href="../styles/menuStyle.css"/>
+    <link rel="stylesheet" href="../styles/addListStyle.css"/>
+    <title>To-Do-Liste hinzufügen</title>
+</head>
+<body>
+
+    <header>
+        <h2>To-Do-Liste hinzufügen</h2>
+    </header>
+
+    <div id="menu-div">
+        <div class="menu">
+            <a href="to_do_lists.html"><p>To-Do-Listen Verwaltung</p></a>
+        </div>
+         <div class="menu">
+            <a href="add_to_do_list.html"><p>To-Do-Liste hinzufügen</p></a>
+        </div>
+        <div id="usernameDisplay-div">
+            <p id="usernameDisplay"></p>
+        </div>
+        <button class="menu-button menu" id="logout-button">Logout</button>
+    </div>
+
+    <div id="form-div">
+        <form>
+            <div>
+                <label>Titel der To-Do-Liste</label>
+                <input type="text" id="title" name="title" required placeholder="Hier den Titel eingeben..."/>
+            </div>
+            <div>
+                <label>Beschreibung</label>
+                <input type="text" id="description" name="description" required placeholder="Hier die Beschreibung eingeben..."/>
+            </div>
+            <div>
+                <input class="form_buttons" type="submit" value="Liste hinzufügen">
+                <input class="form_buttons" type="reset" value="Zurücksetzen">
+            </div>
+        </form>
+    </div>
+
+    
+</body>
+</html>

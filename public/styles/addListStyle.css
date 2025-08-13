@@ -1,0 +1,10 @@
+#form-div {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    left: 15%;
+    top: 7%;
+    height: 93%;
+    width: 85%;
+}

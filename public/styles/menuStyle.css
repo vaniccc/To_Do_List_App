@@ -1,0 +1,74 @@
+#menu-div {
+    position: relative;
+    top: 7%;
+    height: 93%;
+    width: 15%;
+    background-color: #1e90af;
+    border-right: 2px solid black;
+    padding-top: 2%;
+}
+
+.menu {
+    width: 85%;
+    height: 5%;
+    border: 2px solid black;
+    margin: 0 7.5% 10% 7.5%;
+    font-size: 15px;
+}
+
+.menu a {
+    text-decoration: none;
+}
+
+.menu p {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    height: 100%;
+    transition: all 0.3s;
+}
+
+.menu p:hover {
+    background-color: white;
+    color: black;
+    font-weight: bold;
+    transition: all 0.3s;
+}
+
+.menu-button {
+    color: white;
+    background-color: #1e90af;
+    transition: all 0.3s;
+}
+
+.menu-button:hover {
+    background-color: white;
+    color: black;
+    font-weight: bold;
+    transition: all 0.3s;
+}
+
+#usernameDisplay-div{
+    position: absolute;
+    bottom: 15%;
+    width: 85%;
+    height: 5%;
+    border: none;
+    margin: 0 7.5% 0 7.5%;
+}
+
+#usernameDisplay {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    height: 100%;
+}
+
+#logout-button {
+    position: absolute;
+    bottom: 7.5%;
+    right: 7.5%;
+    margin: 0 0 0 7.5%;
+}

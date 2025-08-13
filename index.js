@@ -3,6 +3,7 @@ const usersRoute = require('./routes/userRoutes');
 const session = require('express-session');
 const app = express();
 const PORT = process.env.PORT || 3000;
+const todoRoute = require('./routes/todoRoutes');
 
 app.use(express.static('public'))
 
@@ -16,6 +17,8 @@ app.use(session({
 }));
 
 app.use('/users', usersRoute);
+
+app.use('/todos', todoRoute);
 
 app.listen(PORT, () => {
   console.log(`Server läuft auf Port ${PORT}`);
