@@ -32,7 +32,7 @@ header h2 {
     width: 85%;
     height: 5%;
     border: 2px solid black;
-    margin: 0 0 10% 5%;
+    margin: 0 7.5% 10% 7.5%;
     font-size: 15px;
 }
 
@@ -75,7 +75,7 @@ header h2 {
     width: 85%;
     height: 5%;
     border: none;
-    margin: 0 0 0 5%;
+    margin: 0 7.5% 0 7.5%;
 }
 
 #usernameDisplay {
@@ -89,7 +89,6 @@ header h2 {
 #logout-button {
     position: absolute;
     bottom: 7.5%;
-    right: 7.5%;
-    margin: 0 0 0 5%;
+    margin: 0 7.5% 0 7.5%;
 }
 
