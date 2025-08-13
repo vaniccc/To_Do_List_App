@@ -89,6 +89,7 @@ header h2 {
 #logout-button {
     position: absolute;
     bottom: 7.5%;
-    margin: 0 7.5% 0 7.5%;
+    right: 7.5%;
+    margin: 0 7.5% 0 0;
 }
 
