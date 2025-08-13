@@ -45,9 +45,21 @@ input[type=text] {
     height: 40px;
     border: 2px solid black;
     border-radius: 8px;
+    font-size: 15px;
 }
 
 input[type=submit] {
-    color: #5387ca;
+    background-color: #5387ca;
+    color: white;
+    transition: all 0.3s;
 }
+
+input[type=submit]:hover {
+    background-color: white;
+    color: black;
+    font-weight: bold;
+    transition: all 0.3s;
+}
+
+
 
