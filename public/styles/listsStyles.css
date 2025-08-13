@@ -58,11 +58,7 @@ header h2 {
     transition: all 0.3s;
 }
 
-#logout-button {
-    position: absolute;
-    bottom: 10%;
-    right: 7.5%;
-    border: none;
+.menu-button {
     color: white;
     background-color: #1e90af;
     width: 85%;
@@ -73,7 +69,13 @@ header h2 {
     font-size: 15px;
 }
 
-#logout-button:hover {
+#logout-button {
+    position: absolute;
+    bottom: 5%;
+    right: 7.5%;
+}
+
+.menu-button:hover {
     background-color: white;
     color: black;
     font-weight: bold;
