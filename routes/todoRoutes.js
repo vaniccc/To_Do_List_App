@@ -27,16 +27,5 @@ router.post('/lists', loginIsRequired, async (req, res) => {
     }
 });
 
-router.get('/lists', loginIsRequired, async (req, res) => {
-    try {
-        const result = await pool.query('SELECT * FROM lists WHERE user_id = $1', [req.session.user.id]);
-        
-        res.json(result.rows);
-    } catch(err) {
-        console.error(err);
-        res.status(500).json ({ error: "Fehler beim Laden der Listen"});
-    }
-});
-
 
 module.exports = router;
