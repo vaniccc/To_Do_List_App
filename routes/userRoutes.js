@@ -99,8 +99,7 @@ router.post('/login', async (req, res) => {
     } catch(err) {
         console.error(err);
         res.status(500).json({ error: "Serverfehler beim Login."});
-    }
-    
+    } 
 });
 
 router.get('/user', (req, res) => {

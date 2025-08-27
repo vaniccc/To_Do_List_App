@@ -1,13 +1,9 @@
 const express = require('express');
 const router = express.Router();
 const pool = require('../config/db');
+const loginIsRequired = require('../middleware/loginIsRequired');
 
-function loginIsRequired(req, res, next){
-    if(!req.session.user) {
-        return res.status(401).json({ error: 'Nicht eingeloggt'});
-    }
-    next(); // Fährt direkt weitre fort, ohne zustoppen.
-}
+
 
 router.post('/lists', loginIsRequired, async (req, res) => {
     const { title, description } = req.body;
