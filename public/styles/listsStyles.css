@@ -1,1 +1,21 @@
+#body-div {
+    position: absolute;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    left: 15%;
+    top: 7%;
+    height: 93%;
+    width: 85%;
+}
+
+#list-div {
+    background-color: #1e90af;
+    padding: 3%;
+    border-radius: 16px;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.4);
+    border: 2px solid black;
+    width: 70%;
+    height: 50%;
+}
 
