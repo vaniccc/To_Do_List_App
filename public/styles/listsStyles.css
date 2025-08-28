@@ -19,3 +19,22 @@
     height: 50%;
 }
 
+#listContainer {
+    list-style: none;
+}
+
+li {
+    padding: 10px;
+    margin: 5px 0;
+    color: white;
+    background: #145a6d;
+    cursor: pointer;
+    border: 1px solid black;
+    border-radius: 5px;
+    transition: all 0.5s;
+}
+
+li:hover {
+    background: #ddd;
+    color: black;
+}

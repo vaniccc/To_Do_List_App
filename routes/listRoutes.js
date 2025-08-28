@@ -16,7 +16,6 @@ router.get('/', loginIsRequired, async (req, res) => {
     }
 });
 
-
 router.post('/', loginIsRequired, async (req, res) => {
     const { title, description } = req.body;
     try {

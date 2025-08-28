@@ -5,7 +5,7 @@ const form = document.getElementById('addListForm').addEventListener('submit', a
     const description = document.getElementById('description').value;
 
     try {
-        const result = await fetch('/lists', {
+        const result = fetch('/lists', {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify({ title, description})
@@ -16,7 +16,7 @@ const form = document.getElementById('addListForm').addEventListener('submit', a
             document.getElementById('title').value = "";
             document.getElementById('description').value = "";
         } else {
-            const data = await result.json();
+            const data = result.json();
             alert(data.error || "Fehler beim Laden");
         }
     } catch(err) {

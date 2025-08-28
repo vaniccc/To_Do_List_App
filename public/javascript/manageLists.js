@@ -2,14 +2,14 @@ const listContainer = document.getElementById('listContainer');
 
 async function loadLists() {
   try {
-    const res = await fetch('/lists');
+    const res = fetch('/lists');
     if (!res.ok) {
       alert('Bitte zuerst einloggen.');
       window.location.href = '../index.html';
       return;
     }
 
-    const lists = await res.json();
+    const lists = res.json();
     listContainer.innerHTML = '';
 
     if (lists.length === 0) {
