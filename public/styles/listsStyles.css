@@ -86,9 +86,17 @@ ul {
     height: 40px;
     width: 150px;
     background-color: #1e90af;
-    border-radius: 5px;
+    border-radius: 10px;
+    border: 2px solid black;
+    color: white;
+    transition: all 0.5s;
 }
 
 #newTodoBtn {
     margin-right: 10px;
+}
+
+.PopupBtn:hover {
+    transition: all 0.5s;
+    background-color: #145a6d;
 }
