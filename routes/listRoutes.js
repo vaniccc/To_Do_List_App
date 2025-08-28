@@ -19,7 +19,7 @@ router.get('/', loginIsRequired, async (req, res) => {
 router.post('/', loginIsRequired, async (req, res) => {
     const { title, description } = req.body;
     try {
-        const result = await pool.query('INSERT INTO lists (user_id, title, description) VALUES ($1, $2, $3)', 
+        const result = await pool.query('INSERT INTO lists (user_id, title, description) VALUES ($1, $2, $3) RETURNING *', 
             [req.session.user.id, title, description]
         );
         res.status(201).json(result.rows[0]);

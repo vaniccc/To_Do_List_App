@@ -13,7 +13,7 @@ async function loadLists() {
       throw new Error('Fehler beim Laden: ' + res.status);
     }
 
-    const lists = res.json();
+    const lists = await res.json();
     listContainer.innerHTML = '';
 
     if (lists.length === 0) {
