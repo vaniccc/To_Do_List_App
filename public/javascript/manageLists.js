@@ -24,6 +24,13 @@ async function loadLists() {
     lists.forEach(list => {
       const li = document.createElement('li');
       li.textContent = `${list.title} – ${list.description || ''}`;
+
+      li.addEventListener('click', () => {
+        popup.style.display = 'flex';
+        popupTitle.textContent = list.title;
+        popupList.innerHTML = `<li>${list.description || 'Keine Beschreibung'}</li>`;
+      });
+
       listContainer.appendChild(li);
     });
   } catch (err) {
