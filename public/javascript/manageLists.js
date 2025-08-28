@@ -3,11 +3,6 @@ const listContainer = document.getElementById('listContainer');
 async function loadLists() {
   try {
     const res = fetch('/lists');
-    if (!res.ok) {
-      alert('Bitte zuerst einloggen.');
-      window.location.href = '../index.html';
-      return;
-    }
 
     const lists = res.json();
     listContainer.innerHTML = '';
