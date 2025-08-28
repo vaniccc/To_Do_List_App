@@ -1,7 +1,7 @@
 const listContainer = document.getElementById('listContainer');
 const popup = document.getElementById('todoPopup');
 const popupTitle = document.getElementById('popupTitle');
-const popupList = document.getElementById('popupList');
+const popupDescription = document.getElementById('popupDescription');
 const closePopupBtn = document.getElementById('closePopup');
 
 async function loadLists() {
@@ -32,7 +32,7 @@ async function loadLists() {
       li.addEventListener('click', () => {
         popup.style.display = 'flex';
         popupTitle.textContent = list.title;
-        popupList.innerHTML = `<li>${list.description || 'Keine Beschreibung'}</li>`;
+        popupDescription.innerHTML = `<li>${list.description || 'Keine Beschreibung'}</li>`;
       });
 
       listContainer.appendChild(li);
