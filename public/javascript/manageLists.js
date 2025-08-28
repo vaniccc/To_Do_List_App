@@ -32,7 +32,7 @@ async function loadLists() {
       li.addEventListener('click', () => {
         popup.style.display = 'flex';
         popupTitle.textContent = list.title;
-        popupDescription.innerHTML = `<li>${list.description || 'Keine Beschreibung'}</li>`;
+        popupDescription.innerHTML = `${list.description || 'Keine Beschreibung'}`;
       });
 
       listContainer.appendChild(li);
