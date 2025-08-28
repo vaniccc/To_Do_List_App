@@ -1,4 +1,8 @@
 const listContainer = document.getElementById('listContainer');
+const popup = document.getElementById('todoPopup');
+const popupTitle = document.getElementById('popupTitle');
+const popupList = document.getElementById('popupList');
+const closePopupBtn = document.getElementById('closePopup');
 
 async function loadLists() {
   try {
