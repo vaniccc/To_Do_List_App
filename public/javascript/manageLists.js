@@ -43,4 +43,8 @@ async function loadLists() {
   }
 }
 
+closePopupBtn.addEventListener('click', () => {
+  popup.style.display = 'none';
+});
+
 loadLists();

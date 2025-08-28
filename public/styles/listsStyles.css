@@ -19,11 +19,11 @@
     height: 50%;
 }
 
-#listContainer {
+#ul {
     list-style: none;
 }
 
-li {
+#listContainer li {
     padding: 10px;
     margin: 5px 0;
     color: white;
@@ -34,7 +34,7 @@ li {
     transition: all 0.5s;
 }
 
-li:hover {
+#listContainer li:hover {
     background: #ddd;
     color: black;
 }
@@ -49,8 +49,8 @@ li:hover {
     background-color: rgba(0,0,0,0.5);
     justify-content: center;
     align-items: center;
+    border: 2px solid black;
 }
-
 
 #todoPopupContent {
   background: white;
