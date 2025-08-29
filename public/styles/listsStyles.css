@@ -98,6 +98,7 @@ ul {
     height: 100%;
     align-items: center;
     justify-content: center;
+    color: white;
 }
 
 .deleteTodoBtn {
@@ -113,10 +114,12 @@ ul {
 }
 
 .popupBtnDiv {
-    position: relative;
-    right: 20px;
-    top: 20px;
     width: 320px;
+}
+
+#listBtnDiv {
+    margin-top: 15px;
+    margin-left: 160px;
 }
 
 .popupBtn {
@@ -159,5 +162,24 @@ ul {
   border-radius: 12px;
   width: 600px;
   height: 350px;
+}
+
+#addTodoForm {
+    margin-top: 20px;
+    width: 100%;
+    height: 80%;
+}
+
+#addTodoForm label {
+    display: block;
+}
+
+input[type=text] {
+    width: 100%;
+    height: 30px;
+    border-radius: 8px;
+    border: 2px solid black;
+    padding: 1%;
+    font-size: 14px;
 }
 
