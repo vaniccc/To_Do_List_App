@@ -95,8 +95,9 @@ ul {
 }
 
 .deleteTodoBtn {
-    position: relative;
+    position: absolute;
     right: 10px;
+    background-color: red;
 }
 
 .todoBtn {
