@@ -96,7 +96,13 @@ ul {
 
 .deleteTodoBtn {
     position: relative;
-    left: 10px;
+    right: 10px;
+}
+
+.todoBtn {
+    width: 35px;
+    height: 35px;
+    border-radius: 50%;
 }
 
 #popupBtnDiv {
