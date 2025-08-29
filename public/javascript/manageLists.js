@@ -80,7 +80,6 @@ newTodo.addEventListener('click', async (e) => {
   }
 
   const title = todoTitleInput.value.trim();
-  // optional: const description = todoDescriptionInput.value.trim();
 
   if (!title) {
     alert('Bitte einen Todo-Titel eingeben.');
@@ -93,7 +92,6 @@ newTodo.addEventListener('click', async (e) => {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({ list_id: currentListId, title })
-      // wenn description mit soll → body: JSON.stringify({ list_id: currentListId, title, description })
     });
 
     if (res.ok) {
