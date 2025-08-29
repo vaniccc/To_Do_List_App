@@ -3,7 +3,7 @@ const popup = document.getElementById('todoPopup');
 const popupTitle = document.getElementById('popupTitle');
 const popupDescription = document.getElementById('popupDescription');
 const closePopupBtn = document.getElementById('closePopup');
-const openNewTodoBtn = document.getElementById('openNewTodoBtn');
+const openNewTodoPopup = document.getElementById('openNewTodoPopup');
 const newTodoPopup = document.getElementById('newTodoPopup');
 const newTodoPopupTitle = document.getElementById('newTodoPopupTitle');
 
@@ -38,6 +38,12 @@ async function loadLists() {
         popupDescription.innerHTML = `${list.description || 'Keine Beschreibung'}`;
       });
 
+      openNewTodoBtn.addEventListener('click', () => {
+        popup.style.display = 'none';
+        newTodoPopup.style.display = 'flex';
+        newTodoPopupTitle.textContent =  `Todo zur Liste "${list.title}" hinzufügen.`;
+      });
+
       listContainer.appendChild(li);
     });
   } catch (err) {
@@ -50,10 +56,6 @@ closePopupBtn.addEventListener('click', () => {
   popup.style.display = 'none';
 });
 
-openNewTodoBtn.addEventListener('click', () => {
-  popup.style.display = 'none';
-  newTodoPopup.style.display = 'flex';
-  newTodoPopupTitle.textContent =  `Todo zur Liste "${list.title}" hinzufügen.`;
-});
+
 
 loadLists();
