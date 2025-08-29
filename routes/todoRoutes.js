@@ -4,24 +4,18 @@ const pool = require('../config/db');
 const loginIsRequired = require('../middleware/loginIsRequired');
 
 
-
-router.post('/lists', loginIsRequired, async (req, res) => {
-    const { title, description } = req.body;
-
-    if(!title) {
-        return res.status(400).json({ error: 'Titel darf nicht leer sein.'});
-    }
-
-
-    try {
-        const result = await pool.query('INSERT INTO lists (user_id, title, description) VALUES ($1, $2, $3)', 
-            [req.session.user.id, title, description]
-        );
-    } catch(err) {
-        console.error(err);
-        res.status(500).json ({ error: 'Fehler beim Erstellen der Liste'});
-    }
+router.post('/', loginIsRequired, async (req, res) => {
+  const { list_id, title } = req.body;
+  try {
+    const result = await pool.query(
+      'INSERT INTO todos (list_id, title, is_done) VALUES ($1, $2, false) RETURNING *',
+      [list_id, title]
+    );
+    res.status(201).json(result.rows[0]);
+  } catch (err) {
+    console.error(err);
+    res.status(500).json({ error: 'Fehler beim Anlegen des Todos' });
+  }
 });
-
 
 module.exports = router;
