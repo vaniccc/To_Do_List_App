@@ -94,6 +94,11 @@ ul {
     justify-content: center;
 }
 
+.deleteTodoBtn {
+    position: relative;
+    left: 10px;
+}
+
 #popupBtnDiv {
     width: 320px;
     margin-top: 20px;
