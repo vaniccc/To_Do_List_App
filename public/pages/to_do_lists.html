@@ -94,20 +94,18 @@
                 <h2 id="todoPopupTitle"></h2>
 
                 <div id="addTodoForm">
-                    <form>
-                        <div>
-                            <label for="todoTitle">Titel des To-Dos</label>
-                            <input type="text" id="todoTitle" name="todoTitle" required maxlength="35" placeholder="Bitte hier den Titel des Todos eingeben...">
-                        </div>
-                        <div>
-                            <label for="todoDescription">Beschreibung des To-Dos (optional)</label>
-                            <input type="text" id="todoDescription" name="todoDescription" placeholder="">
-                        </div>
-                    </form>
+                    <div>
+                        <label for="todoTitle">Titel des To-Dos</label>
+                        <input type="text" id="todoTitle" name="todoTitle" required maxlength="35" placeholder="Bitte hier den Titel des Todos eingeben...">
+                    </div>
+                    <div>
+                        <label for="todoDescription">Beschreibung des To-Dos (optional)</label>
+                        <input type="text" id="todoDescription" name="todoDescription" placeholder="">
+                    </div>
                 </div>
                 <div class="popupBtnDiv" id="todoBtnDiv">
-                    <button class="popupBtn" id="newTodo">Hinzufügen</button>
-                    <button class="popupBtn" id="closeTodoPopup">Abbrechen</button>
+                    <button class="popupBtn" id="newTodo" type="button">Hinzufügen</button>
+                    <button class="popupBtn" id="closeTodoPopup" type="button">Abbrechen</button>
                 </div>
             </div>
         </div>
