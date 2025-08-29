@@ -161,18 +161,18 @@ ul {
   padding: 20px;
   border-radius: 12px;
   width: 600px;
-  height: 350px;
+  height: 300px;
 }
 
 #addTodoForm {
     margin-top: 20px;
     width: 100%;
-    height: 80%;
+    height: 50%;
 }
 
 #addTodoForm div {
     margin-top: 5px;
-    margin-bottom: 5px;
+    margin-bottom: 10px;
 }
 
 #addTodoForm label {
@@ -187,5 +187,10 @@ input[type=text] {
     border: 2px solid black;
     padding: 1%;
     font-size: 14px;
+}
+
+#todoBtnDiv {
+    margin-left: 160px;
+    margin-top: 30px;
 }
 
