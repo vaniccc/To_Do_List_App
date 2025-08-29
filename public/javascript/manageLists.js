@@ -6,6 +6,8 @@ const closeListPopup = document.getElementById('closeListPopup');
 const openTodoPopup = document.getElementById('openTodoPopup');
 const todoPopup = document.getElementById('todoPopup');
 const todoPopupTitle = document.getElementById('todoPopupTitle');
+const newTodo = document.getElementById('newTodo');
+const closeTodoPopup = document.getElementById('closeTodoPopup');
 
 async function loadLists() {
   try {
@@ -54,6 +56,11 @@ async function loadLists() {
 
 closeListPopup.addEventListener('click', () => {
   listPopup.style.display = 'none';
+});
+
+closeTodoPopup.addEventListener('click', () => {
+  todoPopup.style.display = 'none';
+  listPopup.style.display = 'flex';
 });
 
 
