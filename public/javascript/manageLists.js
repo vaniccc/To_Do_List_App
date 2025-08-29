@@ -9,6 +9,8 @@ const todoPopupTitle = document.getElementById('todoPopupTitle');
 const newTodo = document.getElementById('newTodo');
 const closeTodoPopup = document.getElementById('closeTodoPopup');
 
+let currentListId = null;
+
 async function loadLists() {
   try {
     const res = await fetch('/lists');
@@ -38,12 +40,13 @@ async function loadLists() {
         listPopup.style.display = 'flex';
         listPopupTitle.textContent = list.title;
         listPopupDescription.innerHTML = `${list.description || 'Keine Beschreibung'}`;
-      });
-
-      openTodoPopup.addEventListener('click', () => {
+      
+        currentListId = list.list_id; 
+        openTodoPopup.onclick = () => {
         listPopup.style.display = 'none';
         todoPopup.style.display = 'flex';
-        todoPopupTitle.textContent =  `Todo zur Liste "${list.title}" hinzufügen.`;
+        todoPopupTitle.textContent = `Todo zur Liste "${list.title}" hinzufügen.`;
+      };
       });
 
       listContainer.appendChild(li);
@@ -63,6 +66,39 @@ closeTodoPopup.addEventListener('click', () => {
   listPopup.style.display = 'flex';
 });
 
+
+
+newTodo.addEventListener('click', async () => {
+  
+  const title = newTodo.value.trim();
+
+  try {
+    const res = await fetch('/todos', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ list_id: currentListId, title })
+    });
+
+    if (res.ok) {
+      const todo = await res.json();
+      alert('Todo erfolgreich hinzugefügt!');
+      newTodo.value = '';
+
+      todoPopup.style.display = 'none';
+      listPopup.style.display = 'flex';
+
+      const li = document.createElement('li');
+      li.textContent = todo.title;
+      document.getElementById('popupListTodos')?.appendChild(li);
+    } else {
+      const data = await res.json();
+      alert(data.error || 'Fehler beim Anlegen des Todos');
+    }
+  } catch (err) {
+    console.error(err);
+    alert('Fehler beim Anlegen des Todos');
+  }
+});
 
 
 loadLists();
