@@ -112,10 +112,11 @@ ul {
     border-radius: 50%;
 }
 
-#popupBtnDiv {
+.popupBtnDiv {
+    position: relative;
+    right: 20px;
+    top: 20px;
     width: 320px;
-    margin-top: 20px;
-    margin-left: 140px;
 }
 
 .popupBtn {
@@ -159,5 +160,4 @@ ul {
   width: 600px;
   height: 350px;
 }
-
 

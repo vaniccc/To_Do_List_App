@@ -34,7 +34,7 @@
             <ul id="listContainer"></ul>
         </div>
 
-        <!-- Popup der Listen mit Todos drin-->
+        <!-- List Popup -->
 
         <div id="listPopup">
             <div id="listPopupContent">
@@ -80,12 +80,14 @@
                         </div>
                     </ul>
                 </div>
-                <div id="popupBtnDiv">
+                <div class="popupBtnDiv">
                     <button class="popupBtn" id="openTodoPopup">+ Neues Todo anlegen</button>
                     <button class="popupBtn" id="closeListPopup">Schließen</button>
                 </div>
             </div>
         </div>
+
+        <!-- Todo Popup -->
 
         <div id="todoPopup">
             <div id="todoPopupContent">
@@ -94,16 +96,16 @@
                 <div id="addTodoForm">
                     <form>
                         <div>
-                            <label></label>
+                            <label for="todoTitle">Titel des To-Dos</label>
                             <input type="text">
                         </div>
                         <div>
-                            <label></label>
+                            <label for="TodoDescription">Beschreibung des To-Dos</label>
                             <input type="text">
                         </div>
                     </form>
                 </div>
-                <div id="popupBtnDiv">
+                <div class="popupBtnDiv">
                     <button class="popupBtn" id="newTodo">Hinzufügen</button>
                     <button class="popupBtn" id="closeTodoPopup">Abbrechen</button>
                 </div>
