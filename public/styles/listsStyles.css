@@ -89,7 +89,7 @@ ul {
 
 #popupListTodos div li {
     display: flex;
-    width: 70%;
+    width: 75%;
     height: 100%;
     align-items: center;
     justify-content: center;
@@ -101,7 +101,7 @@ ul {
 
 .todoBtn {
     margin-top: 5px;
-    margin-left: 15px;
+    margin-left: 10px;
     width: 35px;
     height: 35px;
     border-radius: 50%;
