@@ -38,7 +38,7 @@ async function loadLists() {
         popupDescription.innerHTML = `${list.description || 'Keine Beschreibung'}`;
       });
 
-      openNewTodoBtn.addEventListener('click', () => {
+      openNewTodoPopup.addEventListener('click', () => {
         popup.style.display = 'none';
         newTodoPopup.style.display = 'flex';
         newTodoPopupTitle.textContent =  `Todo zur Liste "${list.title}" hinzufügen.`;
