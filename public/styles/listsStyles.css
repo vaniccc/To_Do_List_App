@@ -118,7 +118,7 @@ ul {
     margin-left: 140px;
 }
 
-.PopupBtn {
+.popupBtn {
     height: 40px;
     width: 150px;
     background-color: #1e90af;
@@ -128,12 +128,12 @@ ul {
     transition: all 0.5s;
 }
 
-.PopupBtn:hover {
+.popupBtn:hover {
     transition: all 0.5s;
     background-color: #145a6d;
 }
 
-#openNewTodoBtn {
+#openNewTodoPopup {
     margin-right: 10px;
 }
 
