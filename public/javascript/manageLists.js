@@ -1,11 +1,11 @@
 const listContainer = document.getElementById('listContainer');
-const popup = document.getElementById('todoPopup');
-const popupTitle = document.getElementById('popupTitle');
-const popupDescription = document.getElementById('popupDescription');
-const closePopupBtn = document.getElementById('closePopup');
-const openNewTodoPopup = document.getElementById('openNewTodoPopup');
-const newTodoPopup = document.getElementById('newTodoPopup');
-const newTodoPopupTitle = document.getElementById('newTodoPopupTitle');
+const listPopup = document.getElementById('listPopup');
+const listPopupTitle = document.getElementById('listPopupTitle');
+const listPopupDescription = document.getElementById('listPopupDescription');
+const closeListPopup = document.getElementById('closeListPopup');
+const openTodoPopup = document.getElementById('openTodoPopup');
+const todoPopup = document.getElementById('todoPopup');
+const todoPopupTitle = document.getElementById('todoPopupTitle');
 
 async function loadLists() {
   try {
@@ -33,15 +33,15 @@ async function loadLists() {
       li.textContent = `${list.title} – ${list.description || ''}`;
 
       li.addEventListener('click', () => {
-        popup.style.display = 'flex';
-        popupTitle.textContent = list.title;
-        popupDescription.innerHTML = `${list.description || 'Keine Beschreibung'}`;
+        listPopup.style.display = 'flex';
+        listPopupTitle.textContent = list.title;
+        listPopupDescription.innerHTML = `${list.description || 'Keine Beschreibung'}`;
       });
 
-      openNewTodoPopup.addEventListener('click', () => {
-        popup.style.display = 'none';
-        newTodoPopup.style.display = 'flex';
-        newTodoPopupTitle.textContent =  `Todo zur Liste "${list.title}" hinzufügen.`;
+      openTodoPopup.addEventListener('click', () => {
+        listPopup.style.display = 'none';
+        todoPopup.style.display = 'flex';
+        todoPopupTitle.textContent =  `Todo zur Liste "${list.title}" hinzufügen.`;
       });
 
       listContainer.appendChild(li);
@@ -52,8 +52,8 @@ async function loadLists() {
   }
 }
 
-closePopupBtn.addEventListener('click', () => {
-  popup.style.display = 'none';
+closeListPopup.addEventListener('click', () => {
+  listPopup.style.display = 'none';
 });
 
 

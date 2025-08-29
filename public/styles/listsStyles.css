@@ -41,7 +41,7 @@ ul {
 
 /* Popup */
 
-#todoPopup {
+#listPopup {
     display: none;
     position: fixed;
     top: 0; 
@@ -54,7 +54,7 @@ ul {
     border: 2px solid black;
 }
 
-#todoPopupContent {
+#listPopupContent {
   background: white;
   padding: 20px;
   border-radius: 12px;
@@ -62,16 +62,16 @@ ul {
   height: 600px;
 }
 
-#popupTitle {
+#listPopupTitle {
     text-align: center;
 }
 
-#popupDescription {
+#listPopupDescription {
     margin-top: 10px;
     text-align: center;
 }
 
-#ScrollDiv {
+#listScrollDiv {
     margin-top: 20px;
     width: 100%;
     height: 75%;
@@ -82,7 +82,7 @@ ul {
     background-color: #1e90af;
 }
 
-#popupListTodos div {
+#listPopupTodos div {
     display: flex;
     border: 2px solid black;
     border-radius: 8px;
@@ -92,7 +92,7 @@ ul {
     background-color: #145a6d;
 }
 
-#popupListTodos div li {
+#listPopupTodos div li {
     display: flex;
     width: 75%;
     height: 100%;
@@ -139,7 +139,7 @@ ul {
 
 /* newTodoPopup */
 
-#newTodoPopup {
+#todoPopup {
     display: none;
     position: fixed;
     top: 0; 
@@ -152,7 +152,7 @@ ul {
     border: 2px solid black;
 }
 
-#newTodoPopupContent {
+#todoPopupContent {
   background: white;
   padding: 20px;
   border-radius: 12px;
