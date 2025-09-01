@@ -71,51 +71,51 @@ closeTodoPopup.addEventListener('click', () => {
 
 
 
-newTodo.addEventListener('click', async (e) => {
-  e.preventDefault?.();
+// newTodo.addEventListener('click', async (e) => {
+//   e.preventDefault?.();
 
-  if (!currentListId) {
-    alert('Bitte zuerst eine Liste auswählen.');
-    return;
-  }
+//   if (!currentListId) {
+//     alert('Bitte zuerst eine Liste auswählen.');
+//     return;
+//   }
 
-  const title = todoTitleInput.value.trim();
+//   const title = todoTitleInput.value.trim();
 
-  if (!title) {
-    alert('Bitte einen Todo-Titel eingeben.');
-    todoTitleInput.focus();
-    return;
-  }
+//   if (!title) {
+//     alert('Bitte einen Todo-Titel eingeben.');
+//     todoTitleInput.focus();
+//     return;
+//   }
 
-  try {
-    const res = await fetch('/todos', {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ list_id: currentListId, title })
-    });
+//   try {
+//     const res = await fetch('/todos', {
+//       method: 'POST',
+//       headers: { 'Content-Type': 'application/json' },
+//       body: JSON.stringify({ list_id: currentListId, title })
+//     });
 
-    if (res.ok) {
-      const todo = await res.json();
+//     if (res.ok) {
+//       const todo = await res.json();
 
-      todoTitleInput.value = '';
-      todoDescriptionInput.value = '';
+//       todoTitleInput.value = '';
+//       todoDescriptionInput.value = '';
 
-      todoPopup.style.display = 'none';
-      listPopup.style.display = 'flex';
+//       todoPopup.style.display = 'none';
+//       listPopup.style.display = 'flex';
 
-      const li = document.createElement('li');
-      li.textContent = todo.title;
-      document.getElementById('listPopupTodos')?.appendChild(li);
+//       const li = document.createElement('li');
+//       li.textContent = todo.title;
+//       document.getElementById('listPopupTodos')?.appendChild(li);
 
-    } else {
-      const data = await res.json().catch(() => ({}));
-      alert(data.error || 'Fehler beim Anlegen des Todos');
-    }
-  } catch (err) {
-    console.error(err);
-    alert('Fehler beim Anlegen des Todos');
-  }
-});
+//     } else {
+//       const data = await res.json().catch(() => ({}));
+//       alert(data.error || 'Fehler beim Anlegen des Todos');
+//     }
+//   } catch (err) {
+//     console.error(err);
+//     alert('Fehler beim Anlegen des Todos');
+//   }
+// });
 
 
 
