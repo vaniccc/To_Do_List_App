@@ -71,51 +71,68 @@ closeTodoPopup.addEventListener('click', () => {
 
 
 
-// newTodo.addEventListener('click', async (e) => {
-//   e.preventDefault?.();
+newTodo.addEventListener('click', async (e) => {
+  e.preventDefault?.();
 
-//   if (!currentListId) {
-//     alert('Bitte zuerst eine Liste auswählen.');
-//     return;
-//   }
+  if (!currentListId) {
+    alert('Bitte zuerst eine Liste auswählen.');
+    return;
+  }
 
-//   const title = todoTitleInput.value.trim();
+  const title = todoTitleInput.value.trim();
+  const description = todoDescriptionInput.value.trim();
 
-//   if (!title) {
-//     alert('Bitte einen Todo-Titel eingeben.');
-//     todoTitleInput.focus();
-//     return;
-//   }
+  if (!title) {
+    alert('Bitte einen Todo-Titel eingeben.');
+    todoTitleInput.focus();
+    return;
+  }
 
-//   try {
-//     const res = await fetch('/todos', {
-//       method: 'POST',
-//       headers: { 'Content-Type': 'application/json' },
-//       body: JSON.stringify({ list_id: currentListId, title })
-//     });
+  try {
+    const res = await fetch('/todos', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ list_id: currentListId, title, description })
+    });
 
-//     if (res.ok) {
-//       const todo = await res.json();
+    if (!res.ok) {
+      const data = await res.json().catch(() => ({}));
+      throw new Error(data.error || 'Fehler beim Anlegen des To-Dos');
+    }
 
-//       todoTitleInput.value = '';
-//       todoDescriptionInput.value = '';
+    const todo = await res.json();
 
-//       todoPopup.style.display = 'none';
-//       listPopup.style.display = 'flex';
+    todoTitleInput.value = '';
+    todoDescriptionInput.value = '';
 
-//       const li = document.createElement('li');
-//       li.textContent = todo.title;
-//       document.getElementById('listPopupTodos')?.appendChild(li);
+    todoPopup.style.display = 'none';
+    listPopup.style.display = 'flex';
 
-//     } else {
-//       const data = await res.json().catch(() => ({}));
-//       alert(data.error || 'Fehler beim Anlegen des Todos');
-//     }
-//   } catch (err) {
-//     console.error(err);
-//     alert('Fehler beim Anlegen des Todos');
-//   }
-// });
+    const li = document.createElement('li');
+
+    const span = document.createElement('span');
+    span.textContent = todo.title;
+
+    const statusBtn = document.createElement('button');
+    statusBtn.classList.add('todoStatusBtn', 'todoBtn');
+    statusBtn.innerHTML = `<i class="material-icons">remove</i>`;
+
+    const deleteBtn = document.createElement('button');
+    deleteBtn.classList.add('deleteTodoBtn', 'todoBtn');
+    deleteBtn.innerHTML = `<i class="material-icons">delete</i>`;
+      
+    li.appendChild(span);
+    li.appendChild(statusBtn);
+    li.appendChild(deleteBtn);
+
+
+    document.getElementById('listPopupTodos')?.appendChild(li);
+
+  } catch (err) {
+    console.error(err);
+    alert('Fehler beim Anlegen des Todos');
+  }
+});
 
 
 
