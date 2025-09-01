@@ -50,4 +50,26 @@ router.patch('/:listId', loginIsRequired, async (req, res) => {
   }
 });
 
+router.delete('/:listId', loginIsRequired, async (req, res) => {
+  const { listId } = req.params;
+
+  try {
+    await pool.query('DELETE FROM todos WHERE list_id = $1', [listId]);
+
+    const result = await pool.query(
+      'DELETE FROM lists WHERE list_id = $1 AND user_id = $2 RETURNING *',
+      [listId, req.session.user.id]
+    );
+
+    if (result.rowCount === 0) {
+      return res.status(404).json({ error: 'Liste nicht gefunden oder keine Berechtigung' });
+    }
+
+    res.json({ success: true });
+  } catch (err) {
+    console.error(err);
+    res.status(500).json({ error: 'Fehler beim Löschen der Liste' });
+  }
+});
+
 module.exports = router;
