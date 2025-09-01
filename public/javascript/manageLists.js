@@ -46,6 +46,7 @@ async function loadLists() {
           
           if (resTodos.ok) {
             const todos = await resTodos.json();
+
             todos.forEach(todo => {
                 const li = document.createElement('li');
 
@@ -75,6 +76,7 @@ async function loadLists() {
                     }
 
                     const updatedTodo = await res.json();
+                    todo.is_done = updatedTodo.is_done;
 
                     if (updatedTodo.is_done) {
                       statusBtn.style.backgroundColor = 'green';
@@ -83,6 +85,7 @@ async function loadLists() {
                       statusBtn.style.backgroundColor = '';
                       statusBtn.innerHTML = `<i class="material-icons">remove</i>`;
                     }
+                    
 
                   } catch(err) {
                     console.error(err);

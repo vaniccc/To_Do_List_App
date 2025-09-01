@@ -61,6 +61,6 @@ router.patch('/:todoId', loginIsRequired, async (req, res) => {
     console.error(err);
     res.status(500).json({ error: 'Fehler beim Aktualisieren des Todos'});
   }
-})
+});
 
 module.exports = router;
