@@ -119,6 +119,8 @@ newTodo.addEventListener('click', async (e) => {
     todoPopup.style.display = 'none';
     listPopup.style.display = 'flex';
 
+    const todoUl = document.getElementById('listPopupTodos');
+
     const li = document.createElement('li');
 
     const span = document.createElement('span');
@@ -137,7 +139,7 @@ newTodo.addEventListener('click', async (e) => {
     li.appendChild(deleteBtn);
 
 
-    document.getElementById('listPopupTodos')?.appendChild(li);
+    todoUl.appendChild(li);
 
   } catch (err) {
     console.error(err);
