@@ -50,30 +50,33 @@ ul {
   color: white;
 }
 
-#listContainer span {
+.listSpan {
     display: flex;
-    width: 75%; 
     height: 100%; 
     align-items: center;
     justify-content: center; 
     color: white;
 }
 
-.editListBtn, .deleteListBtn {
-  margin-left: 8px;
-  width: 35px;
-  height: 35px;
-  border-radius: 50%;
-  border: none;
-  cursor: pointer;
+#listContainer span {
+    width: 90%; 
 }
 
-.editListBtn {
+.ulBtn {
+    width: 35px;
+    height: 35px;
+    border-radius: 50%;
+    border: none;
+    cursor: pointer;
+    margin-left: 10px;
+}
+
+#editListBtn {
   background-color: #f0ad4e;
 }
 
-.deleteListBtn {
-  background-color: red;
+.deleteBtn {
+    background-color: red;
 }
 
 
