@@ -46,4 +46,21 @@ router.delete('/:todoId', loginIsRequired, async (req, res) => {
   }
 });
 
+router.patch('/:todoId', loginIsRequired, async (req, res) => {
+  const { todoId } = req.params;
+
+  try {
+    const result = await pool.query('UPDATE todos SET is_done = NOT is_done WHERE todo_id = $1 RETURNING *', [todoId]);
+  
+    if(result.rowCount === 0) {
+      return res.status(404).json({ error: 'Todo nicht gefunden' });
+    }
+
+    res.json(result.rows[0]);
+  } catch (err) {
+    console.error(err);
+    res.status(500).json({ error: 'Fehler beim Aktualisieren des Todos'});
+  }
+})
+
 module.exports = router;

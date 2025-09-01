@@ -54,7 +54,40 @@ async function loadLists() {
 
                 const statusBtn = document.createElement('button');
                 statusBtn.classList.add('todoStatusBtn', 'todoBtn');
-                statusBtn.innerHTML = `<i class="material-icons">remove</i>`;
+
+                if(todo.is_done) {
+                  statusBtn.style.backgroundColor = 'green';
+                  statusBtn.innerHTML = `<i class="material-icons">check</i>`;
+                } else {
+                  statusBtn.innerHTML = `<i class="material-icons">remove</i>`;
+                  statusBtn.style.backgroundColor = '';
+                }
+
+                statusBtn.addEventListener('click', async () => {
+                  try {
+                    const res = await fetch(`/todos/${todo.todo_id}`, {
+                      method: 'PATCH'
+                    });
+
+                    if(!res.ok) {
+                      alert('Fehler beim Ändern des Statuses');
+                      return;
+                    }
+
+                    const updatedTodo = await res.json();
+
+                    if (updatedTodo.is_done) {
+                      statusBtn.style.backgroundColor = 'green';
+                      statusBtn.innerHTML = `<i class="material-icons">check</i>`;
+                    } else {
+                      statusBtn.style.backgroundColor = '';
+                      statusBtn.innerHTML = `<i class="material-icons">remove</i>`;
+                    }
+
+                  } catch(err) {
+                    console.error(err);
+                  }
+                });
 
                 const deleteBtn = document.createElement('button');
                 deleteBtn.classList.add('deleteTodoBtn', 'todoBtn');
