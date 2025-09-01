@@ -11,6 +11,7 @@ router.post('/', loginIsRequired, async (req, res) => {
       'INSERT INTO todos (list_id, title, description, is_done) VALUES ($1, $2, $3, false) RETURNING *',
       [list_id, title, description || '']
     );
+    console.log('Todo gespeichert:', result.rows[0]);
     res.status(201).json(result.rows[0]);
   } catch (err) {
     console.error(err);
