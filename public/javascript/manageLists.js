@@ -171,9 +171,14 @@ newTodo.addEventListener('click', async (e) => {
       try {
         const res = await fetch(`/todos/${todo.todo_id}`, { method: 'DELETE' });
 
-        if(!res.ok)
-          alert('Fehler beim Löschen des Todos');
+        if (!res.ok) {
+      const errorData = await res.json().catch(() => ({}));
+      console.error('Fehler beim Löschen:', res.status, res.statusText, errorData);
+      alert(`Fehler beim Löschen des Todos: ${errorData.error || res.status}`);
+      return;
+    }
 
+        console.log('Todo gelöscht:', todo.todo_id);
         li.remove();
       } catch(err) {
         console.error(err);
