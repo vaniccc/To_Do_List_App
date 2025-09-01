@@ -61,8 +61,7 @@ async function loadLists() {
         newListDescription.value = list.description || '';
 
         editListPopup.style.display = 'flex';
-        editListPopup.editListTitle = `Liste "${list.title}" bearbeiten`;
-
+        editListPopupTitle.textContent = `Liste "${list.title}" bearbeiten`;
       });
 
 
