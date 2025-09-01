@@ -32,18 +32,19 @@ async function loadLists() {
       li.textContent = `${list.title} – ${list.description || ''}`;
 
       li.addEventListener('click', async () => {
-    listPopup.style.display = 'flex';
-    listPopupTitle.textContent = list.title;
-    listPopupDescription.innerHTML = `${list.description || 'Keine Beschreibung'}`;
+        listPopup.style.display = 'flex';
+        listPopupTitle.textContent = list.title;
+        listPopupDescription.innerHTML = `${list.description || 'Keine Beschreibung'}`;
 
-    currentListId = list.list_id; 
+        currentListId = list.list_id; 
 
-    const todoUl = document.getElementById('listPopupTodos');
-    todoUl.innerHTML = '';
+        const todoUl = document.getElementById('listPopupTodos');
+        todoUl.innerHTML = '';
 
-    try {
-        const resTodos = await fetch(`/todos/${currentListId}`);
-        if (resTodos.ok) {
+        try {
+          const resTodos = await fetch(`/todos/${currentListId}`);
+          
+          if (resTodos.ok) {
             const todos = await resTodos.json();
             todos.forEach(todo => {
                 const li = document.createElement('li');
@@ -58,6 +59,25 @@ async function loadLists() {
                 const deleteBtn = document.createElement('button');
                 deleteBtn.classList.add('deleteTodoBtn', 'todoBtn');
                 deleteBtn.innerHTML = `<i class="material-icons">delete</i>`;
+
+                deleteBtn.addEventListener('click', async () => {
+                  if(!confirm('Dieses Todo wirklich löschen?'))
+                    return;
+
+                  try {
+                    const res = await fetch('/todos/${todo.todo_id}', {
+                      method: 'DELETE'
+                    });
+
+                    if(!res.ok)
+                      alert('Fehler beim Löschen des Todos');
+
+                    li.remove();
+                  } catch(err) {
+                    console.error(err);
+                    alert('Fehler beim Löschen des Todos');
+                  }
+                });
 
                 li.appendChild(span);  
                 li.appendChild(statusBtn);
@@ -75,9 +95,7 @@ async function loadLists() {
         todoPopup.style.display = 'flex';
         todoPopupTitle.textContent = `Todo zur Liste "${list.title}" hinzufügen.`;
     };
-});
-
-
+  });
       listContainer.appendChild(li);
     });
   } catch (err) {
@@ -94,7 +112,6 @@ closeTodoPopup.addEventListener('click', () => {
   todoPopup.style.display = 'none';
   listPopup.style.display = 'flex';
 });
-
 
 
 newTodo.addEventListener('click', async (e) => {
@@ -148,11 +165,29 @@ newTodo.addEventListener('click', async (e) => {
     const deleteBtn = document.createElement('button');
     deleteBtn.classList.add('deleteTodoBtn', 'todoBtn');
     deleteBtn.innerHTML = `<i class="material-icons">delete</i>`;
+
+    deleteBtn.addEventListener('click', async () => {
+      if(!confirm('Dieses Todo wirklich löschen?'))
+        return;
+
+      try {
+        const res = await fetch('/todos/${todo.todo_id}', {
+          method: 'DELETE'
+        });
+
+        if(!res.ok)
+          alert('Fehler beim Löschen des Todos');
+
+        li.remove();
+      } catch(err) {
+        console.error(err);
+        alert('Fehler beim Löschen des Todos');
+      }
+  });
       
     li.appendChild(span);
     li.appendChild(statusBtn);
     li.appendChild(deleteBtn);
-
 
     todoUl.appendChild(li);
 
@@ -161,7 +196,5 @@ newTodo.addEventListener('click', async (e) => {
     alert('Fehler beim Anlegen des Todos');
   }
 });
-
-
 
 loadLists();

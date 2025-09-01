@@ -19,6 +19,7 @@ router.post('/', loginIsRequired, async (req, res) => {
   }
 });
 
+
 router.get('/:listId', loginIsRequired, async (req, res) => {
   const { listId } = req.params;
   try {
@@ -27,6 +28,18 @@ router.get('/:listId', loginIsRequired, async (req, res) => {
   } catch (err) {
     console.error(err);
     res.status(500).json({ error: 'Fehler beim Laden der Todos' });
+  }
+});
+
+
+router.delete('/:todoId', loginIsRequired, async (req, res) => {
+  const { todoId } = req.params;
+  try {
+    await pool.query('DELETE FROM todos WHERE todo_id = $1', [todoId]);
+    res.status(200).json({ message: 'Todo gelöscht' });
+  } catch (err) {
+    console.error(err);
+    res.status(500).json({ error: 'Fehler beim Löschen des Todos' });
   }
 });
 
