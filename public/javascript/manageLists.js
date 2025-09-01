@@ -46,9 +46,24 @@ async function loadLists() {
         if (resTodos.ok) {
             const todos = await resTodos.json();
             todos.forEach(todo => {
-                const liTodo = document.createElement('li');
-                liTodo.textContent = todo.title;
-                todoUl.appendChild(liTodo);
+                const li = document.createElement('li');
+
+                const span = document.createElement('span');
+                span.textContent = todo.title;
+
+                const statusBtn = document.createElement('button');
+                statusBtn.classList.add('todoStatusBtn', 'todoBtn');
+                statusBtn.innerHTML = `<i class="material-icons">remove</i>`;
+
+                const deleteBtn = document.createElement('button');
+                deleteBtn.classList.add('deleteTodoBtn', 'todoBtn');
+                deleteBtn.innerHTML = `<i class="material-icons">delete</i>`;
+
+                li.appendChild(span);  
+                li.appendChild(statusBtn);
+                li.appendChild(deleteBtn);
+
+                todoUl.appendChild(li);
             });
         }
     } catch (err) {
