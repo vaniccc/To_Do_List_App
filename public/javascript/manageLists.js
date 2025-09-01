@@ -31,18 +31,28 @@ async function loadLists() {
     }
 
     lists.forEach(list => {
+      
       // Erstellung der Listen Items (listen)
+
+      listContainer.innerHTML = '';
+
       const li = document.createElement('li');
-      const span = document.createElement('span');
-      span.textContent = list.title;
+      const listTitleSpan = document.createElement('span');
+      listTitleSpan.textContent = list.title;
 
       const editListBtn = document.createElement('button');
       editListBtn.classList.add('todoBtn');
       deleteBtn.innerHTML = `<i class="material-icons">edit</i>`;
 
-      const deleteBtn = document.createElement('button');
-      deleteBtn.classList.add('deleteTodoBtn', 'todoBtn');
-      deleteBtn.innerHTML = `<i class="material-icons">delete</i>`;
+      const deleteListBtn = document.createElement('button');
+      deleteListBtn.classList.add('deleteTodoBtn', 'todoBtn');
+      deleteListBtn.innerHTML = `<i class="material-icons">delete</i>`;
+
+      li.appendChild(listTitleSpan);  
+      li.appendChild(editListBtn);
+      li.appendChild(deleteListBtn);
+
+      listContainer.appendChild(li);
 
 
       // Nach anklicken der Liste
