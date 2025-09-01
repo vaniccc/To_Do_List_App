@@ -42,13 +42,21 @@ ul {
 .list-item {
   display: flex;
   align-items: center;
-  justify-content: space-between;
   border: 2px solid black;
   border-radius: 8px;
   padding: 10px;
   margin-bottom: 8px;
   background-color: #1e90af;
   color: white;
+}
+
+#listContainer span {
+    display: flex;
+    width: 75%; 
+    height: 100%; 
+    align-items: center;
+    justify-content: center; 
+    color: white;
 }
 
 .editListBtn, .deleteListBtn {
