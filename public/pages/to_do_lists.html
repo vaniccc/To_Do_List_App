@@ -39,7 +39,25 @@
 
         <!-- Edit Lists Popup -->
 
-        <div></div> 
+         <div id="editListPopup">
+            <div id="editListPopupContent">
+                <h2 id="editListPopupTitle"></h2>
+                <div id="editListForm">
+                    <div>
+                        <label for="newListTitle">Neuer Titel des To-Do-Liste</label>
+                        <input type="text" id="newListTitle" name="newListTitle"  maxlength="35" placeholder="Bitte hier den neuen Titel eingeben...">
+                    </div>
+                    <div>
+                        <label for="newListDescription">Neue Beschreibung der To-Do-Liste (optional)</label>
+                        <input type="text" id="newListDescription" name="newListDescription">
+                    </div>
+                </div>
+                <div class="popupBtnDiv" id="editListBtnDiv">
+                    <button class="popupBtn" id="saveEditedListBtn" type="button">Speichern</button>
+                    <button class="popupBtn" id="closeEditPopupBtn" type="button">Abbrechen</button>
+                </div>
+            </div>
+        </div>
 
         <!-- List Popup -->
 
@@ -71,7 +89,7 @@
                     </div>
                     <div>
                         <label for="todoDescription">Beschreibung des To-Dos (optional)</label>
-                        <input type="text" id="todoDescription" name="todoDescription" placeholder="">
+                        <input type="text" id="todoDescription" name="todoDescription">
                     </div>
                 </div>
                 <div class="popupBtnDiv" id="todoBtnDiv">

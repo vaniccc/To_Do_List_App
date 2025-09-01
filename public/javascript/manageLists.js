@@ -12,6 +12,9 @@ const closeTodoPopup = document.getElementById('closeTodoPopup');
 const todoTitleInput = document.getElementById('todoTitle');
 const todoDescriptionInput = document.getElementById('todoDescription');
 
+const listTitleInput = document.getElementById('newListTitle');
+const listDescriptionInput = document.getElementById('newListDescription');
+
 let currentListId = null;
 
 
@@ -28,9 +31,21 @@ async function loadLists() {
     }
 
     lists.forEach(list => {
+      // Erstellung der Listen Items (listen)
       const li = document.createElement('li');
-      li.textContent = `${list.title} – ${list.description || ''}`;
+      const span = document.createElement('span');
+      span.textContent = list.title;
 
+      const editListBtn = document.createElement('button');
+      editListBtn.classList.add('todoBtn');
+      deleteBtn.innerHTML = `<i class="material-icons">edit</i>`;
+
+      const deleteBtn = document.createElement('button');
+      deleteBtn.classList.add('deleteTodoBtn', 'todoBtn');
+      deleteBtn.innerHTML = `<i class="material-icons">delete</i>`;
+
+
+      // Nach anklicken der Liste
       li.addEventListener('click', async () => {
         listPopup.style.display = 'flex';
         listPopupTitle.textContent = list.title;
