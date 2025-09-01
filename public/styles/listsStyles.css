@@ -39,5 +39,34 @@ ul {
     color: black;
 }
 
+.list-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border: 2px solid black;
+  border-radius: 8px;
+  padding: 10px;
+  margin-bottom: 8px;
+  background-color: #1e90af;
+  color: white;
+}
+
+.editListBtn, .deleteListBtn {
+  margin-left: 8px;
+  width: 35px;
+  height: 35px;
+  border-radius: 50%;
+  border: none;
+  cursor: pointer;
+}
+
+.editListBtn {
+  background-color: #f0ad4e;
+}
+
+.deleteListBtn {
+  background-color: red;
+}
+
 
 

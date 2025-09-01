@@ -34,25 +34,25 @@ async function loadLists() {
       
       // Erstellung der Listen Items (listen)
 
-      listContainer.innerHTML = '';
-
       const li = document.createElement('li');
+      li.classList.add('list-item');
+
       const listTitleSpan = document.createElement('span');
       listTitleSpan.textContent = list.title;
 
       const editListBtn = document.createElement('button');
-      editListBtn.classList.add('todoBtn');
-      deleteBtn.innerHTML = `<i class="material-icons">edit</i>`;
+      editListBtn.classList.add('editListBtn');
+      editListBtn.innerHTML = `<i class="material-icons">edit</i>`;
 
       const deleteListBtn = document.createElement('button');
-      deleteListBtn.classList.add('deleteTodoBtn', 'todoBtn');
+      deleteListBtn.classList.add('deleteListBtn');
       deleteListBtn.innerHTML = `<i class="material-icons">delete</i>`;
 
       li.appendChild(listTitleSpan);  
       li.appendChild(editListBtn);
       li.appendChild(deleteListBtn);
 
-      listContainer.appendChild(li);
+      
 
 
       // Nach anklicken der Liste
@@ -145,6 +145,7 @@ async function loadLists() {
                 todoUl.appendChild(li);
             });
         }
+        listContainer.appendChild(li);
     } catch (err) {
         console.error(err);
     }
