@@ -64,20 +64,29 @@ async function loadLists() {
         editListPopupTitle.textContent = `Liste "${list.title}" bearbeiten`;
       });
 
-
-
-
-
-
-
-
-
-
-
-
       const deleteListBtn = document.createElement('button');
       deleteListBtn.classList.add('deleteBtn', 'ulBtn');
       deleteListBtn.innerHTML = `<i class="material-icons">delete</i>`;
+
+      deleteListBtn.addEventListener('click', async (e) => {
+        e.stopPropagation();
+        if (!confirm('Diese Liste wirklich löschen?')) 
+          return;
+        
+        try {
+          const res = await fetch(`/lists/${list.list_id}`, { method: 'DELETE' });
+          
+          if (!res.ok) {
+            alert('Fehler beim Löschen der Liste');
+            return;
+          }
+          
+          li.remove();
+        } catch (err) {
+          console.error(err);
+          alert('Fehler beim Löschen der Liste');
+        }
+  });
 
       li.appendChild(listTitleSpan);  
       li.appendChild(editListBtn);
