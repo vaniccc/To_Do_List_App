@@ -46,7 +46,7 @@ async function loadLists() {
       editListBtn.innerHTML = `<i class="material-icons">edit</i>`;
 
       const deleteListBtn = document.createElement('button');
-      deleteListBtn.classList.add('deleteListBtn', 'ulBtn');
+      deleteListBtn.classList.add('deleteBtn', 'ulBtn');
       deleteListBtn.innerHTML = `<i class="material-icons">delete</i>`;
 
       li.appendChild(listTitleSpan);  
@@ -81,7 +81,7 @@ async function loadLists() {
                 span.textContent = todo.title;
 
                 const statusBtn = document.createElement('button');
-                statusBtn.classList.add('todoStatusBtn', 'todoBtn');
+                statusBtn.classList.add('todoStatusBtn', 'ulBtn', 'todoBtn');
 
                 if(todo.is_done) {
                   statusBtn.style.backgroundColor = 'green';
@@ -120,7 +120,7 @@ async function loadLists() {
                 });
 
                 const deleteBtn = document.createElement('button');
-                deleteBtn.classList.add('deleteTodoBtn', 'todoBtn');
+                deleteBtn.classList.add('deleteBtn', 'ulBtn', 'todoBtn');
                 deleteBtn.innerHTML = `<i class="material-icons">delete</i>`;
 
                 deleteBtn.addEventListener('click', async () => {
