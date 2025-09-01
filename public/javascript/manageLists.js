@@ -13,6 +13,7 @@ const todoTitleInput = document.getElementById('todoTitle');
 const todoDescriptionInput = document.getElementById('todoDescription');
 
 const editListPopup = document.getElementById('editListPopup');
+const editListPopupTitle = document.getElementById('editListPopupTitle');
 const newListTitle = document.getElementById('newListTitle');
 const newListDescription = document.getElementById('newListDescription');
 const editListForm = document.getElementById('editListForm');
@@ -44,7 +45,7 @@ async function loadLists() {
 
       const listTitleSpan = document.createElement('span');
       listTitleSpan.classList.add('listSpan');
-      listTitleSpan.textContent = `Liste "${list.title}" bearbeiten` ;
+      listTitleSpan.textContent =  list.title;
 
       //edit Button
       const editListBtn = document.createElement('button');
@@ -60,6 +61,7 @@ async function loadLists() {
         newListDescription.value = list.description || '';
 
         editListPopup.style.display = 'flex';
+        editListPopup.editListTitle = `Liste "${list.title}" bearbeiten`;
 
       });
 
