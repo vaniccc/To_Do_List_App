@@ -82,22 +82,23 @@ ul {
     background-color: #1e90af;
 }
 
-#listPopupTodos div {
+#listPopupTodos li {
     display: flex;
-    border: 2px solid black;
-    border-radius: 8px;
     width: 100%;
     height: 45px;
+    
+    border: 2px solid black;
+    border-radius: 8px;
     margin-bottom: 5px;
     background-color: #145a6d;
 }
 
-#listPopupTodos div li {
+#listPopupTodos span {
     display: flex;
-    width: 75%;
-    height: 100%;
+    width: 75%; 
+    height: 100%; 
     align-items: center;
-    justify-content: center;
+    justify-content: center; 
     color: white;
 }
 
