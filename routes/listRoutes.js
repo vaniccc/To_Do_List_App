@@ -29,4 +29,25 @@ router.post('/', loginIsRequired, async (req, res) => {
     }
 });
 
+router.patch('/:listId', loginIsRequired, async (req, res) => {
+  const { listId } = req.params;
+  const { title, description } = req.body;
+
+  try {
+    const result = await pool.query(
+      'UPDATE lists SET title = $1, description = $2 WHERE list_id = $3 RETURNING *',
+      [title, description, listId]
+    );
+
+    if (result.rowCount === 0) {
+      return res.status(404).json({ error: 'Liste nicht gefunden' });
+    }
+
+    res.json(result.rows[0]);
+  } catch (err) {
+    console.error(err);
+    res.status(500).json({ error: 'Fehler beim Aktualisieren der Liste' });
+  }
+});
+
 module.exports = router;

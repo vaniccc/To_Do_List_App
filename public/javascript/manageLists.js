@@ -86,13 +86,49 @@ async function loadLists() {
           console.error(err);
           alert('Fehler beim Löschen der Liste');
         }
-  });
+      });
 
       li.appendChild(listTitleSpan);  
       li.appendChild(editListBtn);
       li.appendChild(deleteListBtn);
 
       
+      //Liste bearbeiten Popup
+
+      saveEditedListBtn.addEventListener('click', async () => {
+        const title = newListTitle.value.trim();
+        const description = newListDescription.value.trim();
+
+        if (!title) {
+          alert('Bitte einen Titel eingeben.');
+          return;
+        }
+
+        try {
+          const res = await fetch(`/lists/${currentEditListId}`, {
+            method: 'PATCH',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ title, description })
+          });
+
+          if (!res.ok) {
+            alert("Fehler beim Aktualisieren der Liste");
+          }
+
+          editListPopup.style.display = 'none';
+
+          await loadLists();
+
+        } catch (err) {
+    console.error(err);
+    alert(err.message || 'Fehler beim Aktualisieren der Liste');
+  }
+});
+
+    closeEditPopupBtn.addEventListener('click', () => {
+      editListPopup.style.display = 'none';
+  });
+
 
 
       // Nach anklicken der Liste
