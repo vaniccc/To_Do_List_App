@@ -65,7 +65,7 @@ async function loadLists() {
                     return;
 
                   try {
-                    const res = await fetch('/todos/${todo.todo_id}', {
+                    const res = await fetch(`/todos/${todo.todo_id}`, {
                       method: 'DELETE'
                     });
 
@@ -171,9 +171,9 @@ newTodo.addEventListener('click', async (e) => {
         return;
 
       try {
-        const res = await fetch('/todos/${todo.todo_id}', {
-          method: 'DELETE'
-        });
+        const res = await fetch(`/todos/${todo.todo_id}`, {
+  method: 'DELETE'
+});
 
         if(!res.ok)
           alert('Fehler beim Löschen des Todos');
