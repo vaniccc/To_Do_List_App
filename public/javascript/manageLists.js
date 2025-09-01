@@ -12,10 +12,15 @@ const closeTodoPopup = document.getElementById('closeTodoPopup');
 const todoTitleInput = document.getElementById('todoTitle');
 const todoDescriptionInput = document.getElementById('todoDescription');
 
-const listTitleInput = document.getElementById('newListTitle');
-const listDescriptionInput = document.getElementById('newListDescription');
+const editListPopup = document.getElementById('editListPopup');
+const newListTitle = document.getElementById('newListTitle');
+const newListDescription = document.getElementById('newListDescription');
+const editListForm = document.getElementById('editListForm');
+const saveEditedListBtn = document.getElementById('saveEditedListBtn');
+const closeEditPopupBtn = document.getElementById('closeEditPopupBtn');
 
 let currentListId = null;
+let currentEditListId = null;
 
 
 async function loadLists() {
@@ -39,11 +44,35 @@ async function loadLists() {
 
       const listTitleSpan = document.createElement('span');
       listTitleSpan.classList.add('listSpan');
-      listTitleSpan.textContent = list.title;
+      listTitleSpan.textContent = `Liste "${list.title}" bearbeiten` ;
 
+      //edit Button
       const editListBtn = document.createElement('button');
       editListBtn.classList.add('editListBtn', 'ulBtn');
       editListBtn.innerHTML = `<i class="material-icons">edit</i>`;
+
+      editListBtn.addEventListener('click', async (e) => {
+        e.stopPropagation(); 
+
+        currentEditListId = list.list_id;
+
+        newListTitle.value = list.title;
+        newListDescription.value = list.description || '';
+
+        editListPopup.style.display = 'flex';
+
+      });
+
+
+
+
+
+
+
+
+
+
+
 
       const deleteListBtn = document.createElement('button');
       deleteListBtn.classList.add('deleteBtn', 'ulBtn');
